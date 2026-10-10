@@ -22,6 +22,23 @@ const clickOption = (option: HTMLElement) => {
   fireEvent.click(option);
 };
 describe("Structured field round trips", () => {
+  it("preserves Django's decimal step so fractional amounts can submit", () => {
+    const { container } = render(
+      <form>
+        <FormField
+          field={{
+            ...field("19.75"),
+            widget: "number",
+            attrs: { min: "0", step: "0.01" },
+          }}
+        />
+      </form>,
+    );
+    const input = screen.getByRole("spinbutton") as HTMLInputElement;
+    expect(input.validity.stepMismatch).toBe(false);
+    expect(container.querySelector("form")!.checkValidity()).toBe(true);
+    expect(new FormData(container.querySelector("form")!).get("data")).toBe("19.75");
+  });
   it("edits an empty array, preserves order and submits one JSON value", () => {
     const { container } = render(
       <form>

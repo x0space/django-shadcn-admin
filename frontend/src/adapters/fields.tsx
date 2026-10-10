@@ -318,7 +318,7 @@ export function FormField({ field }: { field: FieldDescriptor }) {
         {...common}
         {...field.attrs}
         type={field.widget}
-        step={field.widget === "time" ? "any" : undefined}
+        step={field.widget === "time" ? "any" : field.attrs?.step}
         defaultValue={field.widget === "file" ? undefined : initial}
         dir={
           field.direction ||

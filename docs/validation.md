@@ -4,7 +4,7 @@ Validation performed locally on Windows on 2026-10-10.
 
 ## Workspace feature validation
 
-- Final field-editor release checks: **66 Django tests** and **30 frontend tests**
+- Final field-editor release checks: **66 Django tests** and **31 frontend tests**
   pass, including nested JSON/scalar values, custom widget masking, split datetime
   inputs, popup validation and custom popup-template preservation. The production
   admin/library builds and 64-family coverage check pass with bundled Vazirmatn
@@ -18,6 +18,10 @@ Validation performed locally on Windows on 2026-10-10.
   registered model administration, and manifest-based static collection without
   Node. All ten README links are absolute web links, and their repository
   documentation targets exist, including workspace documentation.
+- A full browser CI run found decimal inputs losing Django's step attribute,
+  which blocked fractional inline prices. The renderer now preserves that
+  attribute, and a regression test checks native validity and submission of
+  `19.75` with `step="0.01"`.
 - The previous release commit passed GitHub's complete Python/Django matrix,
   PostgreSQL, and browser jobs. The final field-editor commit requires its own CI
   run before publication.

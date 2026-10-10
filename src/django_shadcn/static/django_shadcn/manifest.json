@@ -1,6 +1,6 @@
 {
-  "_chart-Di7p4vZK.js": {
-    "file": "assets/chart-Di7p4vZK.js",
+  "_chart-Ce4nBjr4.js": {
+    "file": "assets/chart-Ce4nBjr4.js",
     "name": "chart",
     "imports": [
       "src/main.tsx"
@@ -59,27 +59,27 @@
     "src": "node_modules/@fontsource-variable/vazirmatn/files/vazirmatn-latin-wght-normal.woff2"
   },
   "src/catalog.tsx": {
-    "file": "assets/catalog-BEmEZx-j.js",
+    "file": "assets/catalog-6cN6oSV7.js",
     "name": "catalog",
     "src": "src/catalog.tsx",
     "isDynamicEntry": true,
     "imports": [
       "src/main.tsx",
-      "_chart-Di7p4vZK.js"
+      "_chart-Ce4nBjr4.js"
     ]
   },
   "src/dashboard-chart.tsx": {
-    "file": "assets/dashboard-chart-DOnnVYfp.js",
+    "file": "assets/dashboard-chart-BYfEdiiP.js",
     "name": "dashboard-chart",
     "src": "src/dashboard-chart.tsx",
     "isDynamicEntry": true,
     "imports": [
       "src/main.tsx",
-      "_chart-Di7p4vZK.js"
+      "_chart-Ce4nBjr4.js"
     ]
   },
   "src/main.tsx": {
-    "file": "assets/main-CuiDV5bI.js",
+    "file": "assets/main-BqUtkBGa.js",
     "name": "main",
     "src": "src/main.tsx",
     "isEntry": true,
