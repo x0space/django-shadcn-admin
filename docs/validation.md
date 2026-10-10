@@ -2,9 +2,31 @@
 
 Validation performed locally on Windows on 2026-10-10.
 
-## Confirmed
+## Workspace feature validation
 
-- Final Playwright suite: **18/18 passed** across Chrome (Chromium), Firefox 157 and WebKit 27.2. All 128 component compositions were scanned in each browser with no serious or critical accessibility findings. Supported admin screens also pass these scans.
+- **30 targeted browser checks pass** across Chromium, Firefox, and WebKit. The
+  ten workflows cover saved filters/columns/layouts, Kanban persistence, dated
+  and undated calendar records, comparison, relationship traversal, bulk review
+  cancellation/confirmation, list-editable saves, form review and collapsed
+  field preservation, existing CRUD/widget behavior, accessibility, Jalali
+  calendars, and mobile Persian RTL. Results include focused reruns after fixing
+  test selectors for preserved filter URLs and Persian numerals.
+- **52 Django integration tests pass** on Django 5.2, 6.0, and 6.1. Added coverage
+  includes scoped querysets, object permissions, CSRF, masked comparison fields,
+  related-field visibility, action permission variants, expired/tampered/stale
+  reviews, save hooks and change logs, readonly dates, and split datetime fields.
+- **23 frontend tests pass**. Form snapshots cover checkbox/repeated values,
+  choice labels, native split controls/file clearing, inline additions, masking,
+  and malformed saved-view storage.
+- Official Base Nova primitives were refreshed from the live shadcn registry
+  using the verified latest CLI, **4.21.4**.
+- Production admin/library builds, declaration generation, packaged static
+  assets, the 64-family composition coverage check, Django system checks, Ruff,
+  and whitespace checks pass.
+
+## Release baseline
+
+- Baseline Playwright suite: **18/18 passed** across Chrome (Chromium), Firefox 157 and WebKit 27.2. All 128 component compositions were scanned in each browser with no serious or critical accessibility findings. Supported admin screens also pass these scans.
 - Responsive matrix: English, Persian and Arabic, light and dark themes, at 390, 768 and 1440 pixels. RTL portal direction, keyboard dismissal, command navigation, CRUD and inline controls pass.
 - Frontend unit suite: **16/16 passed**, covering canonical/Jalali date conversion, invalid values, native widgets, semantic compositions, late extension registration, single/multiple select submission, widget synchronization, and Django autocomplete. Select tests send pointer-down before click to exercise Base UI's mouse activation contract.
 

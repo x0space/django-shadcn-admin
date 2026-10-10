@@ -7,7 +7,7 @@ Built from the official Base Nova registry: 64 component families, 128 interacti
 Save filtered workspaces with custom columns, switch between tables, Kanban, and
 Gregorian/Jalali calendars, compare records, explore relationships, and review
 form changes and bulk actions before saving. Dashboard cards link straight to
-the records that need attention. See [workspace configuration](docs/workspaces.md).
+the records that need attention. See [workspace configuration](https://github.com/x0space/django-shadcn-admin/blob/main/docs/workspaces.md).
 
 ## Install
 
@@ -117,6 +117,7 @@ Use Python 3.12–3.14 and supported Django 5.2, 6.0, or 6.1. Frontend developme
 ## Documentation
 
 - [Configuration and public API](https://github.com/x0space/django-shadcn-admin/blob/main/docs/api.md)
+- [Admin workspaces, Kanban, comparisons, and reviews](https://github.com/x0space/django-shadcn-admin/blob/main/docs/workspaces.md)
 - [RTL, translation, and Jalali dates](https://github.com/x0space/django-shadcn-admin/blob/main/docs/rtl.md)
 - [Compatibility and native fallback](https://github.com/x0space/django-shadcn-admin/blob/main/docs/compatibility.md)
 - [Component coverage](https://github.com/x0space/django-shadcn-admin/blob/main/docs/component-coverage.md)

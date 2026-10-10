@@ -1,6 +1,6 @@
 {
-  "_chart-6ZeaoKYz.js": {
-    "file": "assets/chart-6ZeaoKYz.js",
+  "_chart-DwHsqI4K.js": {
+    "file": "assets/chart-DwHsqI4K.js",
     "name": "chart",
     "imports": [
       "src/main.tsx"
@@ -47,27 +47,27 @@
     "src": "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-symbols-wght-normal.woff2"
   },
   "src/catalog.tsx": {
-    "file": "assets/catalog-BhmWuKcE.js",
+    "file": "assets/catalog-8VLA7psX.js",
     "name": "catalog",
     "src": "src/catalog.tsx",
     "isDynamicEntry": true,
     "imports": [
       "src/main.tsx",
-      "_chart-6ZeaoKYz.js"
+      "_chart-DwHsqI4K.js"
     ]
   },
   "src/dashboard-chart.tsx": {
-    "file": "assets/dashboard-chart-Kzw4JV7j.js",
+    "file": "assets/dashboard-chart-duM5mPID.js",
     "name": "dashboard-chart",
     "src": "src/dashboard-chart.tsx",
     "isDynamicEntry": true,
     "imports": [
       "src/main.tsx",
-      "_chart-6ZeaoKYz.js"
+      "_chart-DwHsqI4K.js"
     ]
   },
   "src/main.tsx": {
-    "file": "assets/main-DAVK_XMI.js",
+    "file": "assets/main-DYfV3-bH.js",
     "name": "main",
     "src": "src/main.tsx",
     "isEntry": true,
@@ -76,7 +76,7 @@
       "src/catalog.tsx"
     ],
     "css": [
-      "assets/main-BBKnX0bT.css"
+      "assets/main-Bdxqcd-L.css"
     ],
     "assets": [
       "assets/noto-sans-arabic-arabic-wght-normal-BhzieyvS.woff2",

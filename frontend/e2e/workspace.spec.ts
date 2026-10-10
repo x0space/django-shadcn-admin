@@ -176,6 +176,10 @@ test("save review can cancel and preserves save-and-continue", async ({
     .getByRole("link", { name: "Emma Laurent", exact: true })
     .click();
   const original = await page.getByLabel("City", { exact: true }).inputValue();
+  const notes = page.locator('textarea[name="notes"]');
+  const originalNotes = await notes.inputValue();
+  await page.getByRole("button", { name: "Notes", exact: true }).click();
+  await notes.fill("Keep this draft in a collapsed fieldset");
   await page.getByLabel("City", { exact: true }).fill("Review test city");
   await page
     .getByRole("button", { name: "Save and continue", exact: true })
@@ -208,6 +212,16 @@ test("save review can cancel and preserves save-and-continue", async ({
     .getByRole("button", { name: "Confirm and continue", exact: true })
     .click();
   await expect(page.getByLabel("City", { exact: true })).toHaveValue(original);
+  await expect(notes).toHaveValue("Keep this draft in a collapsed fieldset");
+  await page.getByRole("button", { name: "Notes", exact: true }).click();
+  await notes.fill(originalNotes);
+  await page
+    .getByRole("button", { name: "Save and continue", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Confirm and continue", exact: true })
+    .click();
+  await expect(notes).toHaveValue(originalNotes);
 });
 
 test("list edits review the record and retain Django formset values", async ({
@@ -299,6 +313,7 @@ test("bulk review can cancel before executing the configured action", async ({
 
 test("workspace views and dialogs are accessible and fit mobile RTL", async ({
   page,
+  browser,
 }) => {
   const data = await list(page, "/admin/workspace/order/");
   for (const view of ["Kanban", "Calendar"]) {
@@ -322,21 +337,28 @@ test("workspace views and dialogs are accessible and fit mobile RTL", async ({
       ).replace(/[۰-۹]/g, (digit) => String(digit.charCodeAt(0) - 0x6f0)),
     )
     .toContain(year);
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.getByRole("combobox", { name: "Language", exact: true }).click();
-  await page.getByRole("option", { name: "فارسی", exact: true }).click();
-  await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-  await page.getByRole("tab", { name: "کانبان", exact: true }).click();
+  const mobileContext = await browser.newContext({
+    baseURL: new URL(page.url()).origin,
+    viewport: { width: 390, height: 844 },
+    storageState: await page.context().storageState(),
+  });
+  const mobile = await mobileContext.newPage();
+  await mobile.goto("/admin/workspace/order/");
+  await mobile.getByRole("combobox", { name: "Language", exact: true }).click();
+  await mobile.getByRole("option", { name: "فارسی", exact: true }).click();
+  await expect(mobile.locator("html")).toHaveAttribute("dir", "rtl");
+  await mobile.getByRole("tab", { name: "کانبان", exact: true }).click();
   expect(
-    await page.evaluate(
+    await mobile.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true);
-  await page.getByRole("button", { name: "ذخیره نما", exact: true }).click();
-  await expect(page.getByRole("dialog")).toHaveAttribute("dir", "rtl");
+  await mobile.getByRole("button", { name: "ذخیره نما", exact: true }).click();
+  await expect(mobile.getByRole("dialog")).toHaveAttribute("dir", "rtl");
   expect(
-    await page.evaluate(
+    await mobile.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true);
+  await mobileContext.close();
 });

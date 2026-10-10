@@ -112,7 +112,7 @@ def workspace_descriptor(admin, request, objects):
     from django.db import models
 
     visible = flatten_fieldsets(admin.get_fieldsets(request))
-    if not isinstance(date, (forms.DateField, forms.DateTimeField)):
+    if not isinstance(date, (forms.DateField, forms.DateTimeField, forms.SplitDateTimeField)):
         try:
             date_model_field = admin.model._meta.get_field(date_name)
         except (FieldDoesNotExist, TypeError):

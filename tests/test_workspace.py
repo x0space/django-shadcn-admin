@@ -333,6 +333,15 @@ def test_readonly_dates_can_be_used_for_calendar(admin_client, customer):
     assert data["records"][0]["date"] == timezone.localtime(ticket.created).date().isoformat()
 
 
+def test_calendar_accepts_django_split_datetime_fields(admin_client, customer, monkeypatch):
+    Ticket.objects.create(customer=customer, subject="Split date", priority="normal")
+    monkeypatch.setattr(Ticket._meta.get_field("created"), "editable", True)
+    monkeypatch.setattr(admin.site._registry[Ticket], "readonly_fields", [])
+    data = descriptor(admin_client, "/admin/workspace/ticket/")["page"]["workspace"]
+    assert data["date_field"] == "created"
+    assert data["records"][0]["date"]
+
+
 def test_preview_honors_view_only_action_permissions(client, orders, monkeypatch):
     model_admin = admin.site._registry[Order]
 

@@ -166,7 +166,7 @@ test("shadcn relationship controls, autocomplete, filters and file clearing reta
   await expect(page).toHaveURL(/status__exact=processing/);
   await page
     .getByRole("row")
-    .filter({ has: page.locator(`a[href="${orderUrl}"]`) })
+    .filter({ has: page.locator(`a[href^="${orderUrl}"]`) })
     .getByRole("checkbox")
     .check();
   await page.getByRole("combobox", { name: "Actions", exact: true }).click();

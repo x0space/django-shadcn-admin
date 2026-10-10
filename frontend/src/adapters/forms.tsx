@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useId } from "react";
+import { flushSync } from "react-dom";
 import { PlusIcon, SaveIcon, Trash2Icon, EllipsisIcon } from "lucide-react";
 import { useApp, useStrings } from "../context";
 import type {
@@ -74,13 +75,25 @@ export function Fieldsets({ groups }: { groups: FieldsetDescriptor[] }) {
     return (
       <Card key={index} className="shadow-none admin-form-card">
         {group.collapsed ? (
-          <Collapsible>
+          <Collapsible
+            defaultOpen={group.lines
+              .flat()
+              .some((field) => field.errors.length > 0)}
+            onInvalidCapture={(event) => {
+              const trigger =
+                event.currentTarget.querySelector<HTMLButtonElement>(
+                  '[data-slot="collapsible-trigger"]',
+                );
+              if (trigger?.getAttribute("aria-expanded") === "false")
+                flushSync(() => trigger.click());
+            }}
+          >
             <CardHeader>
               <CollapsibleTrigger className="text-start font-medium">
                 {group.name || t.details}
               </CollapsibleTrigger>
             </CardHeader>
-            <CollapsibleContent>{content}</CollapsibleContent>
+            <CollapsibleContent keepMounted>{content}</CollapsibleContent>
           </Collapsible>
         ) : (
           <>
@@ -157,21 +170,17 @@ export function AdminForm({ page }: { page: FormPage }) {
     ...page.inlines.flatMap((inline) => [
       ...inline.rows.flatMap((row, index) =>
         row.fields.flatMap((group) =>
-          group.lines
-            .flat()
-            .map((field) => ({
-              ...field,
-              label: `${inline.name} ${index + 1} · ${field.label}`,
-            })),
+          group.lines.flat().map((field) => ({
+            ...field,
+            label: `${inline.name} ${index + 1} · ${field.label}`,
+          })),
         ),
       ),
       ...inline.empty.fields.flatMap((group) =>
-        group.lines
-          .flat()
-          .map((field) => ({
-            ...field,
-            label: `${inline.name} · ${field.label}`,
-          })),
+        group.lines.flat().map((field) => ({
+          ...field,
+          label: `${inline.name} · ${field.label}`,
+        })),
       ),
     ]),
   ];
