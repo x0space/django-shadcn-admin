@@ -1,6 +1,14 @@
 import { useState, useRef, lazy, Suspense } from "react";
 import { useFormReview } from "./review";
-import { WorkspaceToolbar, useWorkspaceViews, KanbanView, CalendarView, ActionReview, workspaceRequest, type ActionPreview } from "./workspace";
+import {
+  WorkspaceToolbar,
+  useWorkspaceViews,
+  KanbanView,
+  CalendarView,
+  ActionReview,
+  workspaceRequest,
+  type ActionPreview,
+} from "./workspace";
 import {
   ArrowUpDownIcon,
   ArrowUpRightIcon,
@@ -82,14 +90,38 @@ export function Dashboard({ page }: { page: DashboardPage }) {
   const metrics = page.widgets.filter((w) => w.kind === "metric");
   return (
     <div className="space-y-8">
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div
+        className={`grid gap-4 sm:grid-cols-2 ${metrics.length === 5 ? "xl:grid-cols-5" : "xl:grid-cols-4"}`}
+      >
         {metrics.length ? (
           metrics.map((widget, i) => (
             <Card key={i} className="shadow-none">
               <CardHeader>
-                <CardDescription>{widget.url ? <a href={widget.url} className="inline-flex items-center gap-2 hover:underline">{widget.title}<ArrowUpRightIcon className="size-3" /></a> : widget.title}</CardDescription>
+                <CardDescription>
+                  {widget.url ? (
+                    <a
+                      href={widget.url}
+                      className="inline-flex items-center gap-2 hover:underline"
+                    >
+                      {widget.title}
+                      <ArrowUpRightIcon className="size-3" />
+                    </a>
+                  ) : (
+                    widget.title
+                  )}
+                </CardDescription>
                 <CardTitle className="text-3xl tracking-tight">
-                  {widget.url ? <a href={widget.url} aria-label={`${widget.title}: ${widget.value}`} className="hover:underline"><bdi>{widget.value}</bdi></a> : <bdi>{widget.value}</bdi>}
+                  {widget.url ? (
+                    <a
+                      href={widget.url}
+                      aria-label={`${widget.title}: ${widget.value}`}
+                      className="hover:underline"
+                    >
+                      <bdi>{widget.value}</bdi>
+                    </a>
+                  ) : (
+                    <bdi>{widget.value}</bdi>
+                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-xs text-muted-foreground">
@@ -113,7 +145,15 @@ export function Dashboard({ page }: { page: DashboardPage }) {
         .map((widget, index) => (
           <Card key={index} className="shadow-none">
             <CardHeader>
-              <CardTitle>{widget.url ? <a href={widget.url} className="hover:underline">{widget.title}</a> : widget.title}</CardTitle>
+              <CardTitle>
+                {widget.url ? (
+                  <a href={widget.url} className="hover:underline">
+                    {widget.title}
+                  </a>
+                ) : (
+                  widget.title
+                )}
+              </CardTitle>
               <CardDescription>{widget.description}</CardDescription>
             </CardHeader>
             <CardContent>
@@ -208,20 +248,53 @@ export function ModelList({ page }: { page: ListPage }) {
   const [previewBusy, setPreviewBusy] = useState(false);
   const [previewError, setPreviewError] = useState("");
   const [reviewToken, setReviewToken] = useState("");
-  const review = useFormReview(actionForm, page.rows.flatMap((row) => row.cells.flatMap((cell) => cell.field ? [cell.field] : [])));
+  const review = useFormReview(
+    actionForm,
+    page.rows.flatMap((row) =>
+      row.cells.flatMap((cell) =>
+        cell.field
+          ? [
+              {
+                ...cell.field,
+                label: `${page.workspace?.records.find((record) => record.key === row.key)?.label || `#${row.key}`} · ${cell.field.label}`,
+              },
+            ]
+          : [],
+      ),
+    ),
+  );
   const selectRecord = (key: string, checked: boolean) => {
-    setAll(false); setReviewToken(""); setSelected((previous) => {const next = new Set(previous); checked ? next.add(key) : next.delete(key); return next;});
+    setAll(false);
+    setReviewToken("");
+    setSelected((previous) => {
+      const next = new Set(previous);
+      checked ? next.add(key) : next.delete(key);
+      return next;
+    });
   };
-  const visibleColumn = (index: number) => page.headers[index]?.checkbox || page.editable && page.rows.some((row) => row.cells[index]?.field) || views.columns.includes(index);
+  const visibleColumn = (index: number) =>
+    page.headers[index]?.checkbox ||
+    (page.editable && page.rows.some((row) => row.cells[index]?.field)) ||
+    views.columns.includes(index);
   const confirmAction = () => {
     if (!preview || !actionForm.current || !pendingAction.current) return;
     // Selection/action cannot silently change between preview and confirmation.
     const current = new FormData(actionForm.current);
-    if (["action", "select_across", "_selected_action"].some((name) => JSON.stringify(current.getAll(name)) !== JSON.stringify(pendingAction.current!.getAll(name)))) {
-      setPreview(null); setPreviewError(t.selection_changed); return;
+    if (
+      ["action", "select_across", "_selected_action"].some(
+        (name) =>
+          JSON.stringify(current.getAll(name)) !==
+          JSON.stringify(pendingAction.current!.getAll(name)),
+      )
+    ) {
+      setPreview(null);
+      setPreviewError(t.selection_changed);
+      return;
     }
     actionConfirmed.current = true;
-    const token = actionForm.current.querySelector<HTMLInputElement>('input[name="_shadcn_review"]');
+    const token = actionForm.current.querySelector<HTMLInputElement>(
+      'input[name="_shadcn_review"]',
+    );
     if (token) token.value = preview.token;
     // React state is committed after the native submit event; set the token on the DOM first.
     actionForm.current.requestSubmit();
@@ -246,7 +319,7 @@ export function ModelList({ page }: { page: ListPage }) {
               ))}
             </div>
             <Button variant="outline" type="submit">
-              {t.go}
+              {t.search_submit}
             </Button>
           </form>
         )}
@@ -303,23 +376,57 @@ export function ModelList({ page }: { page: ListPage }) {
           </CardContent>
         </Card>
       )}
-      <form ref={actionForm} method="post" encType="multipart/form-data" className="space-y-4"
+      <form
+        ref={actionForm}
+        method="post"
+        encType="multipart/form-data"
+        className="space-y-4"
         onSubmit={(event) => {
-          if (actionConfirmed.current) {actionConfirmed.current = false; return;}
-          const submitter = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
+          if (actionConfirmed.current) {
+            actionConfirmed.current = false;
+            return;
+          }
+          const submitter = (event.nativeEvent as SubmitEvent)
+            .submitter as HTMLButtonElement | null;
           const body = new FormData(event.currentTarget);
-          if (submitter?.name === "_save" || body.has("_save")) {review.intercept(event); return;}
+          if (submitter?.name === "_save" || body.has("_save")) {
+            review.intercept(event);
+            return;
+          }
           if (!page.workspace || !body.get("action")) return;
-          event.preventDefault(); pendingAction.current = body; setPreview(null); setPreviewBusy(true); setPreviewError("");
-          const endpoint = new URL(page.workspace.preview_url, window.location.origin); endpoint.search = window.location.search;
-          void workspaceRequest<ActionPreview>(endpoint.href, body).then(setPreview).catch((e: Error) => setPreviewError(e.message)).finally(() => setPreviewBusy(false));
-        }}>
+          event.preventDefault();
+          pendingAction.current = body;
+          setPreview(null);
+          setPreviewBusy(true);
+          setPreviewError("");
+          const endpoint = new URL(
+            page.workspace.preview_url,
+            window.location.origin,
+          );
+          endpoint.search = window.location.search;
+          void workspaceRequest<ActionPreview>(endpoint.href, body)
+            .then(setPreview)
+            .catch((e: Error) => setPreviewError(e.message))
+            .finally(() => setPreviewBusy(false));
+        }}
+      >
         <Csrf />
         <input type="hidden" name="_shadcn_review" value={reviewToken} />
         <input type="hidden" name="index" value="0" />
-        {Array.from(selected).map((key) => <input key={key} type="hidden" name="_selected_action" value={key} />)}
+        {Array.from(selected).map((key) => (
+          <input key={key} type="hidden" name="_selected_action" value={key} />
+        ))}
         {review.dialog}
-        <ActionReview preview={preview} busy={previewBusy} error={previewError} onClose={() => {setPreview(null); setPreviewError("");}} onConfirm={confirmAction} />
+        <ActionReview
+          preview={preview}
+          busy={previewBusy}
+          error={previewError}
+          onClose={() => {
+            setPreview(null);
+            setPreviewError("");
+          }}
+          onConfirm={confirmAction}
+        />
         <NativeHtml html={page.management} />
         {page.actions.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">
@@ -340,7 +447,11 @@ export function ModelList({ page }: { page: ListPage }) {
                 ))}
               </SelectContent>
             </Select>
-            <Button type="submit" variant="outline" disabled={previewBusy || selected.size === 0}>
+            <Button
+              type="submit"
+              variant="outline"
+              disabled={previewBusy || selected.size === 0}
+            >
               {t.go}
             </Button>
             <input type="hidden" name="select_across" value={all ? "1" : "0"} />
@@ -363,13 +474,37 @@ export function ModelList({ page }: { page: ListPage }) {
             <AlertDescription>{page.errors.join(" ")}</AlertDescription>
           </Alert>
         )}
-        <div className={`min-w-0 overflow-x-auto rounded-xl border bg-card ${views.view !== "table" ? "hidden" : ""}`}>
+        <div
+          className={`min-w-0 overflow-x-auto rounded-xl border bg-card ${views.view !== "table" ? "hidden" : ""}`}
+        >
           <Table>
             <TableHeader>
               <TableRow>
-                {page.workspace && !page.headers.some((header) => header.checkbox) && <TableHead><Checkbox aria-label={t.select_all} checked={selected.size === page.rows.length && page.rows.length > 0} onCheckedChange={(checked) => {setSelected(checked ? new Set(page.rows.map((row) => row.key)) : new Set()); setAll(false);}} /></TableHead>}
+                {page.workspace &&
+                  !page.headers.some((header) => header.checkbox) && (
+                    <TableHead>
+                      <Checkbox
+                        aria-label={t.select_all}
+                        checked={
+                          selected.size === page.rows.length &&
+                          page.rows.length > 0
+                        }
+                        onCheckedChange={(checked) => {
+                          setSelected(
+                            checked
+                              ? new Set(page.rows.map((row) => row.key))
+                              : new Set(),
+                          );
+                          setAll(false);
+                        }}
+                      />
+                    </TableHead>
+                  )}
                 {page.headers.map((header, index) => (
-                  <TableHead key={index} className={visibleColumn(index) ? "" : "hidden"}>
+                  <TableHead
+                    key={index}
+                    className={visibleColumn(index) ? "" : "hidden"}
+                  >
                     {header.checkbox ? (
                       <Checkbox
                         aria-label={t.select_all}
@@ -404,15 +539,31 @@ export function ModelList({ page }: { page: ListPage }) {
             <TableBody>
               {page.rows.map((row) => (
                 <TableRow key={row.key}>
-                  {page.workspace && !page.headers.some((header) => header.checkbox) && <TableCell><Checkbox checked={selected.has(row.key)} aria-label={`${t.select_record} ${row.key}`} onCheckedChange={(checked) => selectRecord(row.key, Boolean(checked))} /></TableCell>}
+                  {page.workspace &&
+                    !page.headers.some((header) => header.checkbox) && (
+                      <TableCell>
+                        <Checkbox
+                          checked={selected.has(row.key)}
+                          aria-label={`${t.select_record} ${row.key}`}
+                          onCheckedChange={(checked) =>
+                            selectRecord(row.key, Boolean(checked))
+                          }
+                        />
+                      </TableCell>
+                    )}
                   {row.cells.map((cell, index) => (
-                    <TableCell key={index} className={visibleColumn(index) ? "" : "hidden"}>
+                    <TableCell
+                      key={index}
+                      className={visibleColumn(index) ? "" : "hidden"}
+                    >
                       {page.headers[index]?.checkbox ? (
                         <Checkbox
                           value={row.key}
                           aria-label={`${t.actions} ${row.key}`}
                           checked={selected.has(row.key)}
-                          onCheckedChange={(checked) => selectRecord(row.key, Boolean(checked))}
+                          onCheckedChange={(checked) =>
+                            selectRecord(row.key, Boolean(checked))
+                          }
                         />
                       ) : cell.field ? (
                         <FormField field={cell.field} />
@@ -434,8 +585,20 @@ export function ModelList({ page }: { page: ListPage }) {
           </Table>
           {!page.rows.length && <NoRecords />}
         </div>
-        {views.view === "kanban" && page.workspace && <KanbanView workspace={page.workspace} selected={selected} onSelect={selectRecord} />}
-        {views.view === "calendar" && page.workspace && <CalendarView workspace={page.workspace} selected={selected} onSelect={selectRecord} />}
+        {views.view === "kanban" && page.workspace && (
+          <KanbanView
+            workspace={page.workspace}
+            selected={selected}
+            onSelect={selectRecord}
+          />
+        )}
+        {views.view === "calendar" && page.workspace && (
+          <CalendarView
+            workspace={page.workspace}
+            selected={selected}
+            onSelect={selectRecord}
+          />
+        )}
         {page.editable && views.view === "table" && (
           <Button type="submit" name="_save" value="1">
             {t.save}

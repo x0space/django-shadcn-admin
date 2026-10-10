@@ -47,6 +47,9 @@ test("dashboard, CRUD and inline forms work through Django", async ({
     .fill(`browser-${Date.now()}@example.com`);
   await page.getByLabel("Joined", { exact: false }).first().fill("2026-10-09");
   await page.getByRole("button", { name: "Save changes", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Confirm and continue", exact: true })
+    .click();
   await expect(page.getByRole("table")).toContainText("Browser Customer");
   await page.goto("/admin/workspace/order/add/");
   await page.getByRole("button", { name: "Add another", exact: true }).click();
@@ -112,20 +115,24 @@ test("shadcn relationship controls, autocomplete, filters and file clearing reta
   await page.getByRole("option", { name: "Emma Laurent", exact: true }).click();
   await page.getByRole("combobox", { name: /Priority/ }).click();
   await page.getByRole("option", { name: "Urgent", exact: true }).click();
-  await page
-    .getByLabel("Attachment", { exact: true })
-    .setInputFiles({
-      name: "shadcn.txt",
-      mimeType: "text/plain",
-      buffer: Buffer.from("Widget upload"),
-    });
+  await page.getByLabel("Attachment", { exact: true }).setInputFiles({
+    name: "shadcn.txt",
+    mimeType: "text/plain",
+    buffer: Buffer.from("Widget upload"),
+  });
   await page.getByRole("button", { name: "Save changes", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Confirm and continue", exact: true })
+    .click();
   await page.getByRole("link", { name: subject, exact: true }).click();
   await expect(
     page.getByRole("combobox", { name: "Customer", exact: true }),
   ).toContainText("Emma Laurent");
   await page.getByRole("checkbox", { name: "Clear", exact: true }).check();
   await page.getByRole("button", { name: "Save changes", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Confirm and continue", exact: true })
+    .click();
   await page.getByRole("link", { name: subject, exact: true }).click();
   await expect(
     page.getByRole("checkbox", { name: "Clear", exact: true }),
@@ -138,7 +145,9 @@ test("shadcn relationship controls, autocomplete, filters and file clearing reta
   await page.getByRole("option", { name: "Emma Laurent", exact: true }).click();
   await page.getByRole("combobox", { name: /Status/ }).click();
   await page.getByRole("option", { name: "Processing", exact: true }).click();
-  await page.getByLabel("Placed", { exact: false }).fill("2026-10-10");
+  await page
+    .getByRole("textbox", { name: "Placed", exact: true })
+    .fill("2026-10-10");
   await page.getByRole("button", { name: "Add another", exact: true }).click();
   await page.getByRole("combobox", { name: "Product", exact: true }).click();
   await page
@@ -147,6 +156,9 @@ test("shadcn relationship controls, autocomplete, filters and file clearing reta
   await page.getByLabel("Quantity", { exact: false }).fill("2");
   await page.getByLabel("Unit price", { exact: false }).fill("19.75");
   await page.getByRole("button", { name: "Save changes", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Confirm and continue", exact: true })
+    .click();
   const row = page.getByRole("row").filter({ hasText: "Emma Laurent" }).first();
   const orderUrl = await row.getByRole("link").first().getAttribute("href");
   await page.getByRole("combobox", { name: "Status", exact: true }).click();
@@ -165,6 +177,11 @@ test("shadcn relationship controls, autocomplete, filters and file clearing reta
     })
     .click();
   await page.getByRole("button", { name: "Run action", exact: true }).click();
+  await expect(page.getByRole("dialog")).toContainText("Processing");
+  await page
+    .getByRole("button", { name: "Confirm and continue", exact: true })
+    .click();
+  await expect(page.getByRole("dialog")).not.toBeVisible();
   await page.goto(orderUrl!);
   await expect(page.getByRole("combobox", { name: /Status/ })).toContainText(
     "Shipped",

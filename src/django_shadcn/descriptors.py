@@ -449,7 +449,10 @@ def page_descriptor(context, request, site, template_name):
         "catalog_url": reverse(f"{site.name}:shadcn_components"),
         "jsi18n_url": reverse(f"{site.name}:jsi18n"),
         "language_url": reverse("set_language"),
-        "user": {"id": text(request.user.pk), "name": request.user.get_full_name() or request.user.get_username()}
+        "user": {
+            "id": text(request.user.pk),
+            "name": request.user.get_full_name() or request.user.get_username(),
+        }
         if authenticated
         else None,
         "messages": [],

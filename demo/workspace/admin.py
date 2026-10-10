@@ -70,6 +70,7 @@ class ReplyInline(admin.StackedInline):
 
 @admin.register(Ticket)
 class TicketAdmin(ShadcnModelAdmin):
+    readonly_fields = ["created"]
     shadcn_workspace = {"group_field": "priority", "date_field": "created"}
     shadcn_relations = ["customer", "reply"]
     list_display = ["subject", "customer", "priority", "resolved"]

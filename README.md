@@ -4,6 +4,11 @@ A Django admin generated from your existing `ModelAdmin` registrations, with ups
 
 Built from the official Base Nova registry: 64 component families, 128 interactive examples, responsive navigation, accessible forms, and light/dark themes. Django keeps control of authentication, permissions, forms, actions, and persistence. Custom templates and widgets have a documented native compatibility path.
 
+Save filtered workspaces with custom columns, switch between tables, Kanban, and
+Gregorian/Jalali calendars, compare records, explore relationships, and review
+form changes and bulk actions before saving. Dashboard cards link straight to
+the records that need attention. See [workspace configuration](docs/workspaces.md).
+
 ## Install
 
 Requires Python 3.12+ and Django 5.2–6.1. Once the first release is published to PyPI:

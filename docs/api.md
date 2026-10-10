@@ -39,6 +39,11 @@ def metrics(request, site):
 
 Chart descriptors have `kind="chart"`, `title`, optional `description`, and `points=[{"label": "Oct", "value": 100}]`. Numeric values are numeric JSON values; decimal currency should be formatted intentionally by the provider.
 
+Metric and chart descriptors accept an optional `url` for direct navigation to a
+filtered collection. `ShadcnModelAdmin` also exposes workspace settings for
+Kanban/calendar fields, relationship exploration, and deterministic action
+previews. See [admin workspaces](workspaces.md) for setup and behavior.
+
 ## Widget adapters
 
 Register a Python adapter using `site.register_widget(WidgetClass, adapter)`. The adapter receives `(bound_field, request)` and returns a JSON-compatible field descriptor. Required keys are `widget`, `name`, `id`, `label`, and `errors`; additional keys include `value`, `help`, `required`, `disabled`, `attrs`, and `html`.

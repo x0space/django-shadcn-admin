@@ -22,16 +22,22 @@ def overview(request, site):
                     "title": title,
                     "value": qs.count(),
                     "description": _("Records in your workspace"),
-                    "url": reverse(f"{site.name}:{model._meta.app_label}_{model._meta.model_name}_changelist"),
+                    "url": reverse(
+                        f"{site.name}:{model._meta.app_label}_{model._meta.model_name}_changelist"
+                    ),
                 }
             )
             if model is Order:
-                widgets.append({
-                    "kind": "metric", "title": _("Orders needing attention"),
-                    "value": qs.exclude(status="shipped").count(),
-                    "description": _("New and processing orders"),
-                    "url": reverse(f"{site.name}:workspace_order_changelist") + "?status__in=new,processing",
-                })
+                widgets.append(
+                    {
+                        "kind": "metric",
+                        "title": _("Orders needing attention"),
+                        "value": qs.exclude(status="shipped").count(),
+                        "description": _("New and processing orders"),
+                        "url": reverse(f"{site.name}:workspace_order_changelist")
+                        + "?status__in=new,processing",
+                    }
+                )
                 points = list(
                     qs.values("placed")
                     .annotate(value=Sum(F("orderline__quantity") * F("orderline__unit_price")))

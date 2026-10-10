@@ -152,9 +152,29 @@ export function AdminForm({ page }: { page: FormPage }) {
   const formId = useId();
   const form = useRef<HTMLFormElement>(null);
   const dirty = useRef(new Set<string>());
-  const reviewFields = [...page.fieldsets.flatMap((group) => group.lines.flat()),
-    ...page.inlines.flatMap((inline) => [...inline.rows.flatMap((row) => row.fields.flatMap((group) => group.lines.flat())),
-      ...inline.empty.fields.flatMap((group) => group.lines.flat())])];
+  const reviewFields = [
+    ...page.fieldsets.flatMap((group) => group.lines.flat()),
+    ...page.inlines.flatMap((inline) => [
+      ...inline.rows.flatMap((row, index) =>
+        row.fields.flatMap((group) =>
+          group.lines
+            .flat()
+            .map((field) => ({
+              ...field,
+              label: `${inline.name} ${index + 1} · ${field.label}`,
+            })),
+        ),
+      ),
+      ...inline.empty.fields.flatMap((group) =>
+        group.lines
+          .flat()
+          .map((field) => ({
+            ...field,
+            label: `${inline.name} · ${field.label}`,
+          })),
+      ),
+    ]),
+  ];
   const review = useFormReview(form, reviewFields);
   useEffect(() => {
     if (page.has_errors)
@@ -202,7 +222,12 @@ export function AdminForm({ page }: { page: FormPage }) {
     >
       <Csrf />
       {review.dialog}
-      {page.relations_url && page.object_key && <RelationshipExplorer url={page.relations_url} objectKey={page.object_key} />}
+      {page.relations_url && page.object_key && (
+        <RelationshipExplorer
+          url={page.relations_url}
+          objectKey={page.object_key}
+        />
+      )}
       {page.hidden.map((html, i) => (
         <NativeHtml key={i} html={html} />
       ))}

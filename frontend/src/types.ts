@@ -66,7 +66,7 @@ export interface WorkspaceRecord {
 export interface WorkspaceDescriptor {
   group_field: string | null;
   date_field: string | null;
-  groups: {value: string; label: string}[];
+  groups: { value: string; label: string }[];
   records: WorkspaceRecord[];
   compare_url: string;
   preview_url: string;
