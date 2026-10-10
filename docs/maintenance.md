@@ -28,6 +28,11 @@ The demo settings and credentials are development fixtures, not production confi
 
 ## Upstream review — 2026-10-10
 
+Keep the select wrapper's scrolling and inset padding on `Select.List`, with the
+popup clipping its outer border. Base UI's scroll arrows measure the list. This
+local integration fix prevents a scroll indicator from covering the last Arabic
+language option in Firefox. Preserve it when refreshing registry components.
+
 Imported all registry UI items using shadcn CLI 4.21.4 with `base-nova` and `rtl: true`. The inventory contains 61 registry components and three documented compositions: Data Table, Date Picker and Typography. The immutable inventory and source files define this release's coverage.
 
 Primary references:

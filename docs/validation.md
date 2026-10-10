@@ -4,6 +4,10 @@ Validation performed locally on Windows on 2026-10-10.
 
 ## Workspace feature validation
 
+- Final release select fix: both Firefox language/responsiveness checks pass
+  after moving scrolling and inset padding to `Select.List`. The full release CI
+  rerun verifies this fix across all supported browsers.
+
 - **30 targeted browser checks pass** across Chromium, Firefox, and WebKit. The
   ten workflows cover saved filters/columns/layouts, Kanban persistence, dated
   and undated calendar records, comparison, relationship traversal, bulk review
