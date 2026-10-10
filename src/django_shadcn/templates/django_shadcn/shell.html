@@ -1,0 +1,9 @@
+{% load shadcn i18n static %}<!DOCTYPE html>
+<html lang="{{ shadcn.language }}" dir="{{ shadcn.direction }}">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ title }} · {{ shadcn.brand }}</title>
+{% shadcn_assets %}{% if shadcn.user %}<script src="{{ shadcn.jsi18n_url }}" nonce="{{ csp_nonce }}"></script>{% endif %}{{ media }}
+</head><body>
+<div id="django-shadcn-root"></div>
+{{ shadcn|json_script:"django-shadcn-data" }}
+<noscript><p>{% translate "Please enable JavaScript to use this interface." %}</p></noscript>
+</body></html>

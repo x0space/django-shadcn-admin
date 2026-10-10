@@ -1,0 +1,20 @@
+{
+  "fa": {
+    "A clear view of everything you're building.": "نگاهی روشن به همه چیزهایی که می‌سازید.",
+    "Workspace": "فضای کاری", "Name": "نام", "Email": "ایمیل", "City": "شهر", "Active": "فعال", "Joined": "تاریخ عضویت", "Notes": "یادداشت‌ها",
+    "Customer": "مشتری", "Customers": "مشتریان", "Product": "محصول", "Products": "محصولات", "SKU": "شناسه کالا", "Price": "قیمت", "Stock": "موجودی", "Image": "تصویر", "Description": "توضیحات",
+    "New": "جدید", "Processing": "در حال پردازش", "Shipped": "ارسال شده", "Status": "وضعیت", "Placed": "تاریخ سفارش", "Order": "سفارش", "Orders": "سفارش‌ها",
+    "Quantity": "تعداد", "Unit price": "قیمت واحد", "Order line": "ردیف سفارش", "Order lines": "ردیف‌های سفارش", "Title": "عنوان", "Slug": "نامک", "Body": "متن", "Published": "منتشر شده", "Publish date": "تاریخ انتشار", "Created": "تاریخ ایجاد", "Article": "مقاله", "Articles": "مقاله‌ها",
+    "Subject": "موضوع", "Priority": "اولویت", "Normal": "عادی", "Urgent": "فوری", "Resolved": "حل شده", "Attachment": "پیوست", "Ticket": "درخواست پشتیبانی", "Tickets": "درخواست‌های پشتیبانی", "Author": "نویسنده", "Reply": "پاسخ", "Replies": "پاسخ‌ها",
+    "Mark selected orders as shipped": "تغییر وضعیت سفارش‌های انتخاب شده به ارسال شده", "Records in your workspace": "رکوردها در فضای کاری شما", "Order volume": "حجم سفارش‌ها", "Revenue by order date": "درآمد بر اساس تاریخ سفارش"
+  },
+  "ar": {
+    "A clear view of everything you're building.": "رؤية واضحة لكل ما تبنيه.",
+    "Workspace": "مساحة العمل", "Name": "الاسم", "Email": "البريد الإلكتروني", "City": "المدينة", "Active": "نشط", "Joined": "تاريخ الانضمام", "Notes": "ملاحظات",
+    "Customer": "عميل", "Customers": "العملاء", "Product": "منتج", "Products": "المنتجات", "SKU": "رمز المنتج", "Price": "السعر", "Stock": "المخزون", "Image": "صورة", "Description": "الوصف",
+    "New": "جديد", "Processing": "قيد المعالجة", "Shipped": "تم الشحن", "Status": "الحالة", "Placed": "تاريخ الطلب", "Order": "طلب", "Orders": "الطلبات",
+    "Quantity": "الكمية", "Unit price": "سعر الوحدة", "Order line": "بند الطلب", "Order lines": "بنود الطلب", "Title": "العنوان", "Slug": "الرابط المختصر", "Body": "المحتوى", "Published": "منشور", "Publish date": "تاريخ النشر", "Created": "تاريخ الإنشاء", "Article": "مقال", "Articles": "المقالات",
+    "Subject": "الموضوع", "Priority": "الأولوية", "Normal": "عادي", "Urgent": "عاجل", "Resolved": "تم الحل", "Attachment": "مرفق", "Ticket": "تذكرة", "Tickets": "التذاكر", "Author": "الكاتب", "Reply": "رد", "Replies": "الردود",
+    "Mark selected orders as shipped": "تحديد الطلبات المختارة كمشحونة", "Records in your workspace": "السجلات في مساحة عملك", "Order volume": "حجم الطلبات", "Revenue by order date": "الإيرادات حسب تاريخ الطلب"
+  }
+}

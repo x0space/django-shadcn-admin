@@ -1,0 +1,94 @@
+{
+  "_chart-xSSIuyEw.js": {
+    "file": "assets/chart-xSSIuyEw.js",
+    "name": "chart",
+    "imports": [
+      "src/main.tsx"
+    ]
+  },
+  "node_modules/@fontsource-variable/geist/files/geist-cyrillic-ext-wght-normal.woff2": {
+    "file": "assets/geist-cyrillic-ext-wght-normal-DjL33-gN.woff2",
+    "src": "node_modules/@fontsource-variable/geist/files/geist-cyrillic-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist/files/geist-cyrillic-wght-normal.woff2": {
+    "file": "assets/geist-cyrillic-wght-normal-BEAKL7Jp.woff2",
+    "src": "node_modules/@fontsource-variable/geist/files/geist-cyrillic-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist/files/geist-latin-ext-wght-normal.woff2": {
+    "file": "assets/geist-latin-ext-wght-normal-DC-KSUi6.woff2",
+    "src": "node_modules/@fontsource-variable/geist/files/geist-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2": {
+    "file": "assets/geist-latin-wght-normal-BgDaEnEv.woff2",
+    "src": "node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist/files/geist-vietnamese-wght-normal.woff2": {
+    "file": "assets/geist-vietnamese-wght-normal-6IgcOCM7.woff2",
+    "src": "node_modules/@fontsource-variable/geist/files/geist-vietnamese-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-arabic-wght-normal.woff2": {
+    "file": "assets/noto-sans-arabic-arabic-wght-normal-BhzieyvS.woff2",
+    "src": "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-arabic-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-latin-ext-wght-normal.woff2": {
+    "file": "assets/noto-sans-arabic-latin-ext-wght-normal-CIz31GGw.woff2",
+    "src": "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-latin-wght-normal.woff2": {
+    "file": "assets/noto-sans-arabic-latin-wght-normal-BQEJrIpl.woff2",
+    "src": "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-math-wght-normal.woff2": {
+    "file": "assets/noto-sans-arabic-math-wght-normal-pS2d8anF.woff2",
+    "src": "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-math-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-symbols-wght-normal.woff2": {
+    "file": "assets/noto-sans-arabic-symbols-wght-normal-BJ6p-EzA.woff2",
+    "src": "node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-symbols-wght-normal.woff2"
+  },
+  "src/catalog.tsx": {
+    "file": "assets/catalog-BjJiRoQA.js",
+    "name": "catalog",
+    "src": "src/catalog.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx",
+      "_chart-xSSIuyEw.js"
+    ]
+  },
+  "src/dashboard-chart.tsx": {
+    "file": "assets/dashboard-chart-DXQByYKo.js",
+    "name": "dashboard-chart",
+    "src": "src/dashboard-chart.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx",
+      "_chart-xSSIuyEw.js"
+    ]
+  },
+  "src/main.tsx": {
+    "file": "assets/main-Sdnx4qIT.js",
+    "name": "main",
+    "src": "src/main.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/dashboard-chart.tsx",
+      "src/catalog.tsx"
+    ],
+    "css": [
+      "assets/main-CUKAPfwS.css"
+    ],
+    "assets": [
+      "assets/noto-sans-arabic-arabic-wght-normal-BhzieyvS.woff2",
+      "assets/noto-sans-arabic-math-wght-normal-pS2d8anF.woff2",
+      "assets/noto-sans-arabic-symbols-wght-normal-BJ6p-EzA.woff2",
+      "assets/noto-sans-arabic-latin-ext-wght-normal-CIz31GGw.woff2",
+      "assets/noto-sans-arabic-latin-wght-normal-BQEJrIpl.woff2",
+      "assets/geist-cyrillic-ext-wght-normal-DjL33-gN.woff2",
+      "assets/geist-cyrillic-wght-normal-BEAKL7Jp.woff2",
+      "assets/geist-vietnamese-wght-normal-6IgcOCM7.woff2",
+      "assets/geist-latin-ext-wght-normal-DC-KSUi6.woff2",
+      "assets/geist-latin-wght-normal-BgDaEnEv.woff2"
+    ]
+  }
+}

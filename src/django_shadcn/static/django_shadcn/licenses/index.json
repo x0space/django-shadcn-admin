@@ -1,0 +1,1079 @@
+[
+  {
+    "name": "@babel/runtime",
+    "version": "8.0.7",
+    "license": "MIT",
+    "files": [
+      "vendor/babel_runtime-LICENSE"
+    ]
+  },
+  {
+    "name": "@base-ui/react",
+    "version": "1.9.0",
+    "license": "MIT",
+    "files": [
+      "vendor/base-ui_react-LICENSE"
+    ]
+  },
+  {
+    "name": "@base-ui/utils",
+    "version": "0.5.0",
+    "license": "MIT",
+    "files": [
+      "vendor/base-ui_utils-LICENSE"
+    ]
+  },
+  {
+    "name": "@date-fns/tz",
+    "version": "1.5.0",
+    "license": "MIT",
+    "files": [
+      "vendor/date-fns_tz-LICENSE.md"
+    ]
+  },
+  {
+    "name": "@daypicker/persian",
+    "version": "10.0.2",
+    "license": "MIT",
+    "files": [
+      "vendor/daypicker_persian-LICENSE"
+    ]
+  },
+  {
+    "name": "@daypicker/react",
+    "version": "10.0.2",
+    "license": "MIT",
+    "files": [
+      "vendor/daypicker_react-LICENSE"
+    ]
+  },
+  {
+    "name": "@floating-ui/core",
+    "version": "1.8.0",
+    "license": "MIT",
+    "files": [
+      "vendor/floating-ui_core-LICENSE"
+    ]
+  },
+  {
+    "name": "@floating-ui/dom",
+    "version": "1.8.0",
+    "license": "MIT",
+    "files": [
+      "vendor/floating-ui_dom-LICENSE"
+    ]
+  },
+  {
+    "name": "@floating-ui/react-dom",
+    "version": "2.1.9",
+    "license": "MIT",
+    "files": [
+      "vendor/floating-ui_react-dom-LICENSE"
+    ]
+  },
+  {
+    "name": "@floating-ui/utils",
+    "version": "0.2.12",
+    "license": "MIT",
+    "files": [
+      "vendor/floating-ui_utils-LICENSE"
+    ]
+  },
+  {
+    "name": "@fontsource-variable/geist",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "files": [
+      "vendor/fontsource-variable_geist-LICENSE"
+    ]
+  },
+  {
+    "name": "@fontsource-variable/noto-sans-arabic",
+    "version": "5.3.0",
+    "license": "OFL-1.1",
+    "files": [
+      "vendor/fontsource-variable_noto-sans-arabic-LICENSE"
+    ]
+  },
+  {
+    "name": "@jridgewell/gen-mapping",
+    "version": "0.3.13",
+    "license": "MIT",
+    "files": [
+      "vendor/jridgewell_gen-mapping-LICENSE"
+    ]
+  },
+  {
+    "name": "@jridgewell/remapping",
+    "version": "2.3.5",
+    "license": "MIT",
+    "files": [
+      "vendor/jridgewell_remapping-LICENSE"
+    ]
+  },
+  {
+    "name": "@jridgewell/resolve-uri",
+    "version": "3.1.2",
+    "license": "MIT",
+    "files": [
+      "vendor/jridgewell_resolve-uri-LICENSE"
+    ]
+  },
+  {
+    "name": "@jridgewell/sourcemap-codec",
+    "version": "1.6.0",
+    "license": "MIT",
+    "files": [
+      "vendor/jridgewell_sourcemap-codec-LICENSE"
+    ]
+  },
+  {
+    "name": "@jridgewell/trace-mapping",
+    "version": "0.3.31",
+    "license": "MIT",
+    "files": [
+      "vendor/jridgewell_trace-mapping-LICENSE"
+    ]
+  },
+  {
+    "name": "@oxc-project/types",
+    "version": "0.153.0",
+    "license": "MIT",
+    "files": [
+      "vendor/oxc-project_types-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/primitive",
+    "version": "1.1.7",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_primitive-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-compose-refs",
+    "version": "1.1.5",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-compose-refs-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-context",
+    "version": "1.2.2",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-context-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-dialog",
+    "version": "1.2.0",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-dialog-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-dismissable-layer",
+    "version": "1.1.20",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-dismissable-layer-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-focus-guards",
+    "version": "1.1.6",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-focus-guards-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-focus-scope",
+    "version": "1.2.0",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-focus-scope-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-id",
+    "version": "1.1.4",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-id-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-portal",
+    "version": "1.1.18",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-portal-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-presence",
+    "version": "1.1.11",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-presence-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-primitive",
+    "version": "2.1.11",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-primitive-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-slot",
+    "version": "1.4.0",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-slot-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-use-callback-ref",
+    "version": "1.1.4",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-use-callback-ref-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-use-controllable-state",
+    "version": "1.2.6",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-use-controllable-state-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-use-effect-event",
+    "version": "0.0.5",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-use-effect-event-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-use-layout-effect",
+    "version": "1.1.4",
+    "license": "MIT",
+    "files": [
+      "vendor/radix-ui_react-use-layout-effect-LICENSE"
+    ]
+  },
+  {
+    "name": "@reduxjs/toolkit",
+    "version": "2.13.0",
+    "license": "MIT",
+    "files": [
+      "vendor/reduxjs_toolkit-LICENSE"
+    ]
+  },
+  {
+    "name": "immer",
+    "version": "11.1.21",
+    "license": "MIT",
+    "files": [
+      "vendor/immer-LICENSE"
+    ]
+  },
+  {
+    "name": "@rolldown/binding-win32-x64-msvc",
+    "version": "1.2.13",
+    "license": "MIT",
+    "files": []
+  },
+  {
+    "name": "@rolldown/pluginutils",
+    "version": "1.0.1",
+    "license": "MIT",
+    "files": [
+      "vendor/rolldown_pluginutils-LICENSE"
+    ]
+  },
+  {
+    "name": "@shadcn/react",
+    "version": "0.3.1",
+    "license": "MIT",
+    "files": [
+      "vendor/shadcn_react-LICENSE.md"
+    ]
+  },
+  {
+    "name": "@standard-schema/spec",
+    "version": "1.1.0",
+    "license": "MIT",
+    "files": [
+      "vendor/standard-schema_spec-LICENSE"
+    ]
+  },
+  {
+    "name": "@standard-schema/utils",
+    "version": "0.3.0",
+    "license": "MIT",
+    "files": [
+      "vendor/standard-schema_utils-LICENSE"
+    ]
+  },
+  {
+    "name": "@tailwindcss/node",
+    "version": "4.3.3",
+    "license": "MIT",
+    "files": [
+      "vendor/tailwindcss_node-LICENSE"
+    ]
+  },
+  {
+    "name": "@tailwindcss/oxide",
+    "version": "4.3.3",
+    "license": "MIT",
+    "files": [
+      "vendor/tailwindcss_oxide-LICENSE"
+    ]
+  },
+  {
+    "name": "@tailwindcss/oxide-win32-x64-msvc",
+    "version": "4.3.3",
+    "license": "MIT",
+    "files": [
+      "vendor/tailwindcss_oxide-win32-x64-msvc-LICENSE"
+    ]
+  },
+  {
+    "name": "@tailwindcss/vite",
+    "version": "4.3.3",
+    "license": "MIT",
+    "files": [
+      "vendor/tailwindcss_vite-LICENSE"
+    ]
+  },
+  {
+    "name": "@tanstack/react-store",
+    "version": "0.11.2",
+    "license": "MIT",
+    "files": [
+      "vendor/tanstack_react-store-LICENSE"
+    ]
+  },
+  {
+    "name": "@tanstack/react-table",
+    "version": "9.2.8",
+    "license": "MIT",
+    "files": [
+      "vendor/tanstack_react-table-LICENSE"
+    ]
+  },
+  {
+    "name": "@tanstack/store",
+    "version": "0.11.2",
+    "license": "MIT",
+    "files": [
+      "vendor/tanstack_store-LICENSE"
+    ]
+  },
+  {
+    "name": "@tanstack/table-core",
+    "version": "9.2.8",
+    "license": "MIT",
+    "files": [
+      "vendor/tanstack_table-core-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-array",
+    "version": "3.2.2",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-array-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-color",
+    "version": "3.1.3",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-color-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-ease",
+    "version": "3.0.2",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-ease-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-interpolate",
+    "version": "3.0.4",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-interpolate-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-path",
+    "version": "3.1.1",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-path-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-scale",
+    "version": "4.0.9",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-scale-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-shape",
+    "version": "3.2.0",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-shape-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-time",
+    "version": "3.0.4",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-time-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/d3-timer",
+    "version": "3.0.2",
+    "license": "MIT",
+    "files": [
+      "vendor/types_d3-timer-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/node",
+    "version": "26.6.4",
+    "license": "MIT",
+    "files": [
+      "vendor/types_node-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/react",
+    "version": "19.3.0",
+    "license": "MIT",
+    "files": [
+      "vendor/types_react-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/react-dom",
+    "version": "19.3.0",
+    "license": "MIT",
+    "files": [
+      "vendor/types_react-dom-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/use-sync-external-store",
+    "version": "0.0.6",
+    "license": "MIT",
+    "files": [
+      "vendor/types_use-sync-external-store-LICENSE"
+    ]
+  },
+  {
+    "name": "aria-hidden",
+    "version": "1.2.6",
+    "license": "MIT",
+    "files": [
+      "vendor/aria-hidden-LICENSE"
+    ]
+  },
+  {
+    "name": "class-variance-authority",
+    "version": "0.7.1",
+    "license": "Apache-2.0",
+    "files": [
+      "vendor/class-variance-authority-LICENSE"
+    ]
+  },
+  {
+    "name": "clsx",
+    "version": "2.1.1",
+    "license": "MIT",
+    "files": [
+      "vendor/clsx-license"
+    ]
+  },
+  {
+    "name": "cmdk",
+    "version": "1.1.1",
+    "license": "MIT",
+    "files": [
+      "vendor/cmdk-LICENSE.md"
+    ]
+  },
+  {
+    "name": "cn",
+    "version": "0.4.0",
+    "license": "MIT",
+    "files": [
+      "vendor/cn-LICENSE"
+    ]
+  },
+  {
+    "name": "csstype",
+    "version": "3.2.3",
+    "license": "MIT",
+    "files": [
+      "vendor/csstype-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-array",
+    "version": "3.2.4",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-array-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-color",
+    "version": "3.1.0",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-color-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-ease",
+    "version": "3.0.1",
+    "license": "BSD-3-Clause",
+    "files": [
+      "vendor/d3-ease-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-format",
+    "version": "3.1.2",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-format-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-interpolate",
+    "version": "3.0.1",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-interpolate-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-path",
+    "version": "3.1.0",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-path-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-scale",
+    "version": "4.0.2",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-scale-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-shape",
+    "version": "3.2.0",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-shape-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-time",
+    "version": "3.1.0",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-time-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-time-format",
+    "version": "4.1.0",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-time-format-LICENSE"
+    ]
+  },
+  {
+    "name": "d3-timer",
+    "version": "3.0.1",
+    "license": "ISC",
+    "files": [
+      "vendor/d3-timer-LICENSE"
+    ]
+  },
+  {
+    "name": "date-fns",
+    "version": "4.4.0",
+    "license": "MIT",
+    "files": [
+      "vendor/date-fns-LICENSE.md"
+    ]
+  },
+  {
+    "name": "date-fns-jalali",
+    "version": "4.1.0-0",
+    "license": "MIT",
+    "files": [
+      "vendor/date-fns-jalali-LICENSE.md"
+    ]
+  },
+  {
+    "name": "decimal.js-light",
+    "version": "2.5.1",
+    "license": "MIT",
+    "files": [
+      "vendor/decimal.js-light-LICENCE.md"
+    ]
+  },
+  {
+    "name": "detect-libc",
+    "version": "2.1.2",
+    "license": "Apache-2.0",
+    "files": [
+      "vendor/detect-libc-LICENSE"
+    ]
+  },
+  {
+    "name": "detect-node-es",
+    "version": "1.1.0",
+    "license": "MIT",
+    "files": [
+      "vendor/detect-node-es-LICENSE"
+    ]
+  },
+  {
+    "name": "embla-carousel",
+    "version": "8.6.0",
+    "license": "MIT",
+    "files": []
+  },
+  {
+    "name": "embla-carousel-react",
+    "version": "8.6.0",
+    "license": "MIT",
+    "files": []
+  },
+  {
+    "name": "embla-carousel-reactive-utils",
+    "version": "8.6.0",
+    "license": "MIT",
+    "files": []
+  },
+  {
+    "name": "enhanced-resolve",
+    "version": "5.26.0",
+    "license": "MIT",
+    "files": [
+      "vendor/enhanced-resolve-LICENSE"
+    ]
+  },
+  {
+    "name": "es-toolkit",
+    "version": "1.52.0",
+    "license": "MIT",
+    "files": [
+      "vendor/es-toolkit-LICENSE",
+      "vendor/es-toolkit-NOTICE"
+    ]
+  },
+  {
+    "name": "eventemitter3",
+    "version": "5.0.4",
+    "license": "MIT",
+    "files": [
+      "vendor/eventemitter3-LICENSE"
+    ]
+  },
+  {
+    "name": "fdir",
+    "version": "6.5.0",
+    "license": "MIT",
+    "files": [
+      "vendor/fdir-LICENSE"
+    ]
+  },
+  {
+    "name": "get-nonce",
+    "version": "1.0.1",
+    "license": "MIT",
+    "files": [
+      "vendor/get-nonce-LICENSE"
+    ]
+  },
+  {
+    "name": "graceful-fs",
+    "version": "4.2.11",
+    "license": "ISC",
+    "files": [
+      "vendor/graceful-fs-LICENSE"
+    ]
+  },
+  {
+    "name": "immer",
+    "version": "10.2.0",
+    "license": "MIT",
+    "files": [
+      "vendor/immer-LICENSE"
+    ]
+  },
+  {
+    "name": "input-otp",
+    "version": "1.5.0",
+    "license": "MIT",
+    "files": [
+      "vendor/input-otp-LICENSE"
+    ]
+  },
+  {
+    "name": "internmap",
+    "version": "2.0.3",
+    "license": "ISC",
+    "files": [
+      "vendor/internmap-LICENSE"
+    ]
+  },
+  {
+    "name": "jiti",
+    "version": "2.7.0",
+    "license": "MIT",
+    "files": [
+      "vendor/jiti-LICENSE"
+    ]
+  },
+  {
+    "name": "lightningcss",
+    "version": "1.32.0",
+    "license": "MPL-2.0",
+    "files": [
+      "vendor/lightningcss-LICENSE"
+    ]
+  },
+  {
+    "name": "lightningcss-win32-x64-msvc",
+    "version": "1.32.0",
+    "license": "MPL-2.0",
+    "files": [
+      "vendor/lightningcss-win32-x64-msvc-LICENSE"
+    ]
+  },
+  {
+    "name": "lucide-react",
+    "version": "1.54.0",
+    "license": "ISC",
+    "files": [
+      "vendor/lucide-react-LICENSE"
+    ]
+  },
+  {
+    "name": "magic-string",
+    "version": "0.30.21",
+    "license": "MIT",
+    "files": [
+      "vendor/magic-string-LICENSE"
+    ]
+  },
+  {
+    "name": "nanoid",
+    "version": "3.3.20",
+    "license": "MIT",
+    "files": [
+      "vendor/nanoid-LICENSE"
+    ]
+  },
+  {
+    "name": "picocolors",
+    "version": "1.1.1",
+    "license": "ISC",
+    "files": [
+      "vendor/picocolors-LICENSE"
+    ]
+  },
+  {
+    "name": "picomatch",
+    "version": "4.0.7",
+    "license": "MIT",
+    "files": [
+      "vendor/picomatch-LICENSE"
+    ]
+  },
+  {
+    "name": "postcss",
+    "version": "8.5.29",
+    "license": "MIT",
+    "files": [
+      "vendor/postcss-LICENSE"
+    ]
+  },
+  {
+    "name": "react",
+    "version": "19.3.0",
+    "license": "MIT",
+    "files": [
+      "vendor/react-LICENSE"
+    ]
+  },
+  {
+    "name": "react-day-picker",
+    "version": "10.0.2",
+    "license": "MIT",
+    "files": [
+      "vendor/react-day-picker-LICENSE"
+    ]
+  },
+  {
+    "name": "react-dom",
+    "version": "19.3.0",
+    "license": "MIT",
+    "files": [
+      "vendor/react-dom-LICENSE"
+    ]
+  },
+  {
+    "name": "react-is",
+    "version": "17.0.2",
+    "license": "MIT",
+    "files": [
+      "vendor/react-is-LICENSE"
+    ]
+  },
+  {
+    "name": "react-redux",
+    "version": "9.3.0",
+    "license": "MIT",
+    "files": [
+      "vendor/react-redux-LICENSE.md"
+    ]
+  },
+  {
+    "name": "react-remove-scroll",
+    "version": "2.7.2",
+    "license": "MIT",
+    "files": [
+      "vendor/react-remove-scroll-LICENSE"
+    ]
+  },
+  {
+    "name": "react-remove-scroll-bar",
+    "version": "2.3.8",
+    "license": "MIT",
+    "files": []
+  },
+  {
+    "name": "react-resizable-panels",
+    "version": "4.14.3",
+    "license": "MIT",
+    "files": [
+      "vendor/react-resizable-panels-LICENSE.md"
+    ]
+  },
+  {
+    "name": "react-style-singleton",
+    "version": "2.2.3",
+    "license": "MIT",
+    "files": [
+      "vendor/react-style-singleton-LICENSE"
+    ]
+  },
+  {
+    "name": "recharts",
+    "version": "3.8.0",
+    "license": "MIT",
+    "files": [
+      "vendor/recharts-LICENSE"
+    ]
+  },
+  {
+    "name": "reselect",
+    "version": "5.1.1",
+    "license": "MIT",
+    "files": [
+      "vendor/reselect-LICENSE"
+    ]
+  },
+  {
+    "name": "redux",
+    "version": "5.0.1",
+    "license": "MIT",
+    "files": [
+      "vendor/redux-LICENSE.md"
+    ]
+  },
+  {
+    "name": "redux-thunk",
+    "version": "3.1.0",
+    "license": "MIT",
+    "files": [
+      "vendor/redux-thunk-LICENSE.md"
+    ]
+  },
+  {
+    "name": "reselect",
+    "version": "5.3.0",
+    "license": "MIT",
+    "files": [
+      "vendor/reselect-LICENSE"
+    ]
+  },
+  {
+    "name": "rolldown",
+    "version": "1.2.13",
+    "license": "MIT",
+    "files": [
+      "vendor/rolldown-LICENSE"
+    ]
+  },
+  {
+    "name": "scheduler",
+    "version": "0.28.0",
+    "license": "MIT",
+    "files": [
+      "vendor/scheduler-LICENSE"
+    ]
+  },
+  {
+    "name": "source-map-js",
+    "version": "1.2.2",
+    "license": "BSD-3-Clause",
+    "files": [
+      "vendor/source-map-js-LICENSE"
+    ]
+  },
+  {
+    "name": "tailwindcss",
+    "version": "4.3.3",
+    "license": "MIT",
+    "files": [
+      "vendor/tailwindcss-LICENSE"
+    ]
+  },
+  {
+    "name": "tapable",
+    "version": "2.3.3",
+    "license": "MIT",
+    "files": [
+      "vendor/tapable-LICENSE"
+    ]
+  },
+  {
+    "name": "tiny-invariant",
+    "version": "1.3.3",
+    "license": "MIT",
+    "files": [
+      "vendor/tiny-invariant-LICENSE"
+    ]
+  },
+  {
+    "name": "tinyglobby",
+    "version": "0.2.17",
+    "license": "MIT",
+    "files": [
+      "vendor/tinyglobby-LICENSE"
+    ]
+  },
+  {
+    "name": "tslib",
+    "version": "2.8.1",
+    "license": "0BSD",
+    "files": [
+      "vendor/tslib-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "tw-animate-css",
+    "version": "1.4.0",
+    "license": "MIT",
+    "files": [
+      "vendor/tw-animate-css-LICENSE"
+    ]
+  },
+  {
+    "name": "undici-types",
+    "version": "8.9.0",
+    "license": "MIT",
+    "files": [
+      "vendor/undici-types-LICENSE"
+    ]
+  },
+  {
+    "name": "use-callback-ref",
+    "version": "1.3.3",
+    "license": "MIT",
+    "files": [
+      "vendor/use-callback-ref-LICENSE"
+    ]
+  },
+  {
+    "name": "use-sidecar",
+    "version": "1.1.3",
+    "license": "MIT",
+    "files": [
+      "vendor/use-sidecar-LICENSE"
+    ]
+  },
+  {
+    "name": "use-sync-external-store",
+    "version": "1.7.0",
+    "license": "MIT",
+    "files": [
+      "vendor/use-sync-external-store-LICENSE"
+    ]
+  },
+  {
+    "name": "victory-vendor",
+    "version": "37.3.6",
+    "license": "MIT AND ISC",
+    "files": []
+  },
+  {
+    "name": "vite",
+    "version": "8.3.4",
+    "license": "MIT",
+    "files": [
+      "vendor/vite-LICENSE.md"
+    ]
+  },
+  {
+    "name": "lightningcss",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "files": [
+      "vendor/lightningcss-LICENSE"
+    ]
+  },
+  {
+    "name": "lightningcss-win32-x64-msvc",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "files": [
+      "vendor/lightningcss-win32-x64-msvc-LICENSE"
+    ]
+  }
+]

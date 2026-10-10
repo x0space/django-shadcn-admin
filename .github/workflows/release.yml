@@ -1,0 +1,89 @@
+name: Publish Python package
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Build bundled frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+          npm test
+          npm run coverage:components
+      - name: Install Python tooling
+        run: python -m pip install -e '.[dev,release]'
+      - name: Test Django integration
+        run: |
+          python -m pytest
+          python -m ruff check src demo tests scripts hatch_build.py
+      - name: Build wheel from source distribution
+        run: python -m build --outdir dist/release
+      - name: Verify distributions and PyPI description
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          python -m twine check --strict dist/release/*
+          if [ -n "$RELEASE_TAG" ]; then
+            python scripts/check_release.py --dist dist/release --tag "$RELEASE_TAG"
+          else
+            python scripts/check_release.py --dist dist/release
+          fi
+      - name: Install wheel into a fresh Django environment
+        run: |
+          python -m venv .cache/release-wheel
+          .cache/release-wheel/bin/python -m pip install dist/release/*.whl
+          .cache/release-wheel/bin/python scripts/smoke_package.py
+      - name: Install sdist without Node
+        run: |
+          python -m venv .cache/release-sdist
+          .cache/release-sdist/bin/python -m pip install dist/release/*.tar.gz
+          .cache/release-sdist/bin/python scripts/smoke_package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-distributions
+          path: dist/release/
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event_name == 'release' && 'pypi' || 'testpypi' }}
+      url: ${{ github.event_name == 'release' && 'https://pypi.org/project/django-shadcn-admin/' || 'https://test.pypi.org/project/django-shadcn-admin/' }}
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-distributions
+          path: dist/
+      - name: Publish to TestPyPI
+        if: github.event_name == 'workflow_dispatch'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+      - name: Publish to PyPI
+        if: github.event_name == 'release'
+        uses: pypa/gh-action-pypi-publish@release/v1

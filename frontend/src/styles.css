@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@fontsource-variable/noto-sans-arabic";
+@import "@fontsource-variable/geist";
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --font-sans: "Geist Variable", "Noto Sans Arabic Variable", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.2 0 0);
+  --card: white;
+  --card-foreground: var(--foreground);
+  --popover: white;
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.22 0 0);
+  --primary-foreground: white;
+  --secondary: oklch(0.955 0 0);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.955 0 0);
+  --muted-foreground: oklch(0.43 0 0);
+  --accent: oklch(0.95 0 0);
+  --accent-foreground: var(--foreground);
+  --destructive: oklch(0.54 0.2 25);
+  --border: oklch(0.9 0 0);
+  --input: var(--border);
+  --ring: oklch(0.6 0 0);
+  --chart-1: oklch(0.59 0.13 160);
+  --chart-2: oklch(0.6 0.13 240);
+  --chart-3: oklch(0.65 0.14 75);
+  --chart-4: oklch(0.59 0.15 300);
+  --chart-5: oklch(0.65 0.17 35);
+  --sidebar: white;
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+.dark {
+  --background: oklch(0.16 0 0);
+  --foreground: oklch(0.94 0 0);
+  --card: oklch(0.2 0 0);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.94 0 0);
+  --primary-foreground: oklch(0.18 0 0);
+  --secondary: oklch(0.26 0 0);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.26 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.29 0 0);
+  --accent-foreground: var(--foreground);
+  --border: oklch(0.32 0 0);
+  --input: var(--border);
+  --ring: oklch(0.6 0 0);
+  --sidebar: oklch(0.18 0 0);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+}
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    margin: 0;
+  }
+  button,
+  a,
+  input,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+html[dir="rtl"] {
+  font-family: "Noto Sans Arabic Variable", "Geist Variable", sans-serif;
+}
+html[dir="rtl"] body {
+  font-family: inherit;
+}
+.native-widget input:not([type="checkbox"]):not([type="radio"]),
+.native-widget select,
+.native-widget textarea {
+  border: 1px solid var(--input);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--card);
+  max-width: 100%;
+}
+.native-widget .help {
+  color: var(--muted-foreground);
+}
+.native-widget label {
+  margin-inline-end: 0.5rem;
+}
+.native-widget .related-widget-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.native-widget .selector {
+  max-width: 100%;
+}
+@keyframes shadcn-enter {
+  from {
+    transform: translateY(4px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+#main-content {
+  animation: shadcn-enter 180ms ease-out both;
+}
+[data-slot="button"],
+[data-slot="sidebar-menu-button"] {
+  transition:
+    background-color 140ms ease,
+    color 140ms ease,
+    box-shadow 140ms ease;
+}
+[data-slot="card"] {
+  border-color: color-mix(in oklch, var(--border) 85%, transparent);
+}
+.admin-form-card [data-slot="card-header"] {
+  padding-block-end: 0.25rem;
+}
+.native-widget select {
+  min-height: 2.5rem;
+}
+.native-widget .related-widget-wrapper {
+  flex-wrap: wrap;
+}
+.native-widget .related-widget-wrapper > :first-child {
+  flex: 1;
+  min-width: 0;
+}
+.native-widget .select2-container {
+  max-width: 100%;
+}
+[data-slot="field-description"]:empty {
+  display: none;
+}
+[data-slot="native-select"][multiple] {
+  height: 10rem;
+  padding-inline-end: 0.75rem;
+}
+.native-widget [data-shadcn-bridge],
+.native-widget .select2-container,
+.native-widget .datetimeshortcuts {
+  display: none !important;
+}
+.native-widget .shadcn-widget-control {
+  vertical-align: middle;
+}
+@media (max-width: 640px) {
+  [data-slot="input"],
+  [data-slot="textarea"],
+  [data-slot="native-select"] {
+    font-size: 16px;
+  }
+  [data-slot="select-trigger"],
+  [data-slot="combobox-chip-input"] {
+    font-size: 16px;
+  }
+  [data-slot="button"],
+  [data-slot="input"],
+  [data-slot="native-select"],
+  [data-slot="select-trigger"],
+  [data-slot="input-group"] {
+    min-height: 2.5rem;
+  }
+  #main-content {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

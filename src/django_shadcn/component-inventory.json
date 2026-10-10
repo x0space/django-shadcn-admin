@@ -1,0 +1,578 @@
+[
+  {
+    "slug": "accordion",
+    "name": "Accordion",
+    "upstream": "https://ui.shadcn.com/docs/components/base/accordion",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "alert",
+    "name": "Alert",
+    "upstream": "https://ui.shadcn.com/docs/components/base/alert",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "alert-dialog",
+    "name": "Alert Dialog",
+    "upstream": "https://ui.shadcn.com/docs/components/base/alert-dialog",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "aspect-ratio",
+    "name": "Aspect Ratio",
+    "upstream": "https://ui.shadcn.com/docs/components/base/aspect-ratio",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "attachment",
+    "name": "Attachment",
+    "upstream": "https://ui.shadcn.com/docs/components/base/attachment",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "avatar",
+    "name": "Avatar",
+    "upstream": "https://ui.shadcn.com/docs/components/base/avatar",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "badge",
+    "name": "Badge",
+    "upstream": "https://ui.shadcn.com/docs/components/base/badge",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "breadcrumb",
+    "name": "Breadcrumb",
+    "upstream": "https://ui.shadcn.com/docs/components/base/breadcrumb",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "bubble",
+    "name": "Bubble",
+    "upstream": "https://ui.shadcn.com/docs/components/base/bubble",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "button",
+    "name": "Button",
+    "upstream": "https://ui.shadcn.com/docs/components/base/button",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "button-group",
+    "name": "Button Group",
+    "upstream": "https://ui.shadcn.com/docs/components/base/button-group",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "calendar",
+    "name": "Calendar",
+    "upstream": "https://ui.shadcn.com/docs/components/base/calendar",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "card",
+    "name": "Card",
+    "upstream": "https://ui.shadcn.com/docs/components/base/card",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "carousel",
+    "name": "Carousel",
+    "upstream": "https://ui.shadcn.com/docs/components/base/carousel",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "chart",
+    "name": "Chart",
+    "upstream": "https://ui.shadcn.com/docs/components/base/chart",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "checkbox",
+    "name": "Checkbox",
+    "upstream": "https://ui.shadcn.com/docs/components/base/checkbox",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "collapsible",
+    "name": "Collapsible",
+    "upstream": "https://ui.shadcn.com/docs/components/base/collapsible",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "combobox",
+    "name": "Combobox",
+    "upstream": "https://ui.shadcn.com/docs/components/base/combobox",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "command",
+    "name": "Command",
+    "upstream": "https://ui.shadcn.com/docs/components/base/command",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "context-menu",
+    "name": "Context Menu",
+    "upstream": "https://ui.shadcn.com/docs/components/base/context-menu",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "data-table",
+    "name": "Data Table",
+    "upstream": "https://ui.shadcn.com/docs/components/base/data-table",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "date-picker",
+    "name": "Date Picker",
+    "upstream": "https://ui.shadcn.com/docs/components/base/date-picker",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "dialog",
+    "name": "Dialog",
+    "upstream": "https://ui.shadcn.com/docs/components/base/dialog",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "direction",
+    "name": "Direction",
+    "upstream": "https://ui.shadcn.com/docs/components/base/direction",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "drawer",
+    "name": "Drawer",
+    "upstream": "https://ui.shadcn.com/docs/components/base/drawer",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "dropdown-menu",
+    "name": "Dropdown Menu",
+    "upstream": "https://ui.shadcn.com/docs/components/base/dropdown-menu",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "empty",
+    "name": "Empty",
+    "upstream": "https://ui.shadcn.com/docs/components/base/empty",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "field",
+    "name": "Field",
+    "upstream": "https://ui.shadcn.com/docs/components/base/field",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "hover-card",
+    "name": "Hover Card",
+    "upstream": "https://ui.shadcn.com/docs/components/base/hover-card",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "input",
+    "name": "Input",
+    "upstream": "https://ui.shadcn.com/docs/components/base/input",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "input-group",
+    "name": "Input Group",
+    "upstream": "https://ui.shadcn.com/docs/components/base/input-group",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "input-otp",
+    "name": "Input Otp",
+    "upstream": "https://ui.shadcn.com/docs/components/base/input-otp",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "item",
+    "name": "Item",
+    "upstream": "https://ui.shadcn.com/docs/components/base/item",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "kbd",
+    "name": "Kbd",
+    "upstream": "https://ui.shadcn.com/docs/components/base/kbd",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "label",
+    "name": "Label",
+    "upstream": "https://ui.shadcn.com/docs/components/base/label",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "marker",
+    "name": "Marker",
+    "upstream": "https://ui.shadcn.com/docs/components/base/marker",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "menubar",
+    "name": "Menubar",
+    "upstream": "https://ui.shadcn.com/docs/components/base/menubar",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "message",
+    "name": "Message",
+    "upstream": "https://ui.shadcn.com/docs/components/base/message",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "message-scroller",
+    "name": "Message Scroller",
+    "upstream": "https://ui.shadcn.com/docs/components/base/message-scroller",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "native-select",
+    "name": "Native Select",
+    "upstream": "https://ui.shadcn.com/docs/components/base/native-select",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "navigation-menu",
+    "name": "Navigation Menu",
+    "upstream": "https://ui.shadcn.com/docs/components/base/navigation-menu",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "pagination",
+    "name": "Pagination",
+    "upstream": "https://ui.shadcn.com/docs/components/base/pagination",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "popover",
+    "name": "Popover",
+    "upstream": "https://ui.shadcn.com/docs/components/base/popover",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "progress",
+    "name": "Progress",
+    "upstream": "https://ui.shadcn.com/docs/components/base/progress",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "questionnaire",
+    "name": "Questionnaire",
+    "upstream": "https://ui.shadcn.com/docs/components/base/questionnaire",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "radio-group",
+    "name": "Radio Group",
+    "upstream": "https://ui.shadcn.com/docs/components/base/radio-group",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "resizable",
+    "name": "Resizable",
+    "upstream": "https://ui.shadcn.com/docs/components/base/resizable",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "scroll-area",
+    "name": "Scroll Area",
+    "upstream": "https://ui.shadcn.com/docs/components/base/scroll-area",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "select",
+    "name": "Select",
+    "upstream": "https://ui.shadcn.com/docs/components/base/select",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "separator",
+    "name": "Separator",
+    "upstream": "https://ui.shadcn.com/docs/components/base/separator",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "sheet",
+    "name": "Sheet",
+    "upstream": "https://ui.shadcn.com/docs/components/base/sheet",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "sidebar",
+    "name": "Sidebar",
+    "upstream": "https://ui.shadcn.com/docs/components/base/sidebar",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "skeleton",
+    "name": "Skeleton",
+    "upstream": "https://ui.shadcn.com/docs/components/base/skeleton",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "slider",
+    "name": "Slider",
+    "upstream": "https://ui.shadcn.com/docs/components/base/slider",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "spinner",
+    "name": "Spinner",
+    "upstream": "https://ui.shadcn.com/docs/components/base/spinner",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "switch",
+    "name": "Switch",
+    "upstream": "https://ui.shadcn.com/docs/components/base/switch",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "table",
+    "name": "Table",
+    "upstream": "https://ui.shadcn.com/docs/components/base/table",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "tabs",
+    "name": "Tabs",
+    "upstream": "https://ui.shadcn.com/docs/components/base/tabs",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "textarea",
+    "name": "Textarea",
+    "upstream": "https://ui.shadcn.com/docs/components/base/textarea",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "toast",
+    "name": "Toast",
+    "upstream": "https://ui.shadcn.com/docs/components/base/toast",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "upstream": "https://ui.shadcn.com/docs/components/base/toggle",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "toggle-group",
+    "name": "Toggle Group",
+    "upstream": "https://ui.shadcn.com/docs/components/base/toggle-group",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "tooltip",
+    "name": "Tooltip",
+    "upstream": "https://ui.shadcn.com/docs/components/base/tooltip",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  },
+  {
+    "slug": "typography",
+    "name": "Typography",
+    "upstream": "https://ui.shadcn.com/docs/components/base/typography",
+    "examples": [
+      "Operations",
+      "Onboarding"
+    ]
+  }
+]

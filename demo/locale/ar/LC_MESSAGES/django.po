@@ -1,0 +1,155 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\nLanguage: ar\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A clear view of everything you're building."
+msgstr "رؤية واضحة لكل ما تبنيه."
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Article"
+msgstr "مقال"
+
+msgid "Articles"
+msgstr "المقالات"
+
+msgid "Attachment"
+msgstr "مرفق"
+
+msgid "Author"
+msgstr "الكاتب"
+
+msgid "Body"
+msgstr "المحتوى"
+
+msgid "City"
+msgstr "المدينة"
+
+msgid "Created"
+msgstr "تاريخ الإنشاء"
+
+msgid "Customer"
+msgstr "عميل"
+
+msgid "Customers"
+msgstr "العملاء"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Image"
+msgstr "صورة"
+
+msgid "Joined"
+msgstr "تاريخ الانضمام"
+
+msgid "Mark selected orders as shipped"
+msgstr "تحديد الطلبات المختارة كمشحونة"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "New"
+msgstr "جديد"
+
+msgid "Normal"
+msgstr "عادي"
+
+msgid "Notes"
+msgstr "ملاحظات"
+
+msgid "Order"
+msgstr "طلب"
+
+msgid "Order line"
+msgstr "بند الطلب"
+
+msgid "Order lines"
+msgstr "بنود الطلب"
+
+msgid "Order volume"
+msgstr "حجم الطلبات"
+
+msgid "Orders"
+msgstr "الطلبات"
+
+msgid "Placed"
+msgstr "تاريخ الطلب"
+
+msgid "Price"
+msgstr "السعر"
+
+msgid "Priority"
+msgstr "الأولوية"
+
+msgid "Processing"
+msgstr "قيد المعالجة"
+
+msgid "Product"
+msgstr "منتج"
+
+msgid "Products"
+msgstr "المنتجات"
+
+msgid "Publish date"
+msgstr "تاريخ النشر"
+
+msgid "Published"
+msgstr "منشور"
+
+msgid "Quantity"
+msgstr "الكمية"
+
+msgid "Records in your workspace"
+msgstr "السجلات في مساحة عملك"
+
+msgid "Replies"
+msgstr "الردود"
+
+msgid "Reply"
+msgstr "رد"
+
+msgid "Resolved"
+msgstr "تم الحل"
+
+msgid "Revenue by order date"
+msgstr "الإيرادات حسب تاريخ الطلب"
+
+msgid "SKU"
+msgstr "رمز المنتج"
+
+msgid "Shipped"
+msgstr "تم الشحن"
+
+msgid "Slug"
+msgstr "الرابط المختصر"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Stock"
+msgstr "المخزون"
+
+msgid "Subject"
+msgstr "الموضوع"
+
+msgid "Ticket"
+msgstr "تذكرة"
+
+msgid "Tickets"
+msgstr "التذاكر"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Unit price"
+msgstr "سعر الوحدة"
+
+msgid "Urgent"
+msgstr "عاجل"
+
+msgid "Workspace"
+msgstr "مساحة العمل"

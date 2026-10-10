@@ -1,0 +1,155 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\nLanguage: fa\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A clear view of everything you're building."
+msgstr "نگاهی روشن به همه چیزهایی که می‌سازید."
+
+msgid "Active"
+msgstr "فعال"
+
+msgid "Article"
+msgstr "مقاله"
+
+msgid "Articles"
+msgstr "مقاله‌ها"
+
+msgid "Attachment"
+msgstr "پیوست"
+
+msgid "Author"
+msgstr "نویسنده"
+
+msgid "Body"
+msgstr "متن"
+
+msgid "City"
+msgstr "شهر"
+
+msgid "Created"
+msgstr "تاریخ ایجاد"
+
+msgid "Customer"
+msgstr "مشتری"
+
+msgid "Customers"
+msgstr "مشتریان"
+
+msgid "Description"
+msgstr "توضیحات"
+
+msgid "Email"
+msgstr "ایمیل"
+
+msgid "Image"
+msgstr "تصویر"
+
+msgid "Joined"
+msgstr "تاریخ عضویت"
+
+msgid "Mark selected orders as shipped"
+msgstr "تغییر وضعیت سفارش‌های انتخاب شده به ارسال شده"
+
+msgid "Name"
+msgstr "نام"
+
+msgid "New"
+msgstr "جدید"
+
+msgid "Normal"
+msgstr "عادی"
+
+msgid "Notes"
+msgstr "یادداشت‌ها"
+
+msgid "Order"
+msgstr "سفارش"
+
+msgid "Order line"
+msgstr "ردیف سفارش"
+
+msgid "Order lines"
+msgstr "ردیف‌های سفارش"
+
+msgid "Order volume"
+msgstr "حجم سفارش‌ها"
+
+msgid "Orders"
+msgstr "سفارش‌ها"
+
+msgid "Placed"
+msgstr "تاریخ سفارش"
+
+msgid "Price"
+msgstr "قیمت"
+
+msgid "Priority"
+msgstr "اولویت"
+
+msgid "Processing"
+msgstr "در حال پردازش"
+
+msgid "Product"
+msgstr "محصول"
+
+msgid "Products"
+msgstr "محصولات"
+
+msgid "Publish date"
+msgstr "تاریخ انتشار"
+
+msgid "Published"
+msgstr "منتشر شده"
+
+msgid "Quantity"
+msgstr "تعداد"
+
+msgid "Records in your workspace"
+msgstr "رکوردها در فضای کاری شما"
+
+msgid "Replies"
+msgstr "پاسخ‌ها"
+
+msgid "Reply"
+msgstr "پاسخ"
+
+msgid "Resolved"
+msgstr "حل شده"
+
+msgid "Revenue by order date"
+msgstr "درآمد بر اساس تاریخ سفارش"
+
+msgid "SKU"
+msgstr "شناسه کالا"
+
+msgid "Shipped"
+msgstr "ارسال شده"
+
+msgid "Slug"
+msgstr "نامک"
+
+msgid "Status"
+msgstr "وضعیت"
+
+msgid "Stock"
+msgstr "موجودی"
+
+msgid "Subject"
+msgstr "موضوع"
+
+msgid "Ticket"
+msgstr "درخواست پشتیبانی"
+
+msgid "Tickets"
+msgstr "درخواست‌های پشتیبانی"
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Unit price"
+msgstr "قیمت واحد"
+
+msgid "Urgent"
+msgstr "فوری"
+
+msgid "Workspace"
+msgstr "فضای کاری"
