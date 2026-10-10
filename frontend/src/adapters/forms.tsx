@@ -11,6 +11,7 @@ import type {
 import { FormField, NativeHtml } from "./fields";
 import { RelationshipExplorer } from "../workspace";
 import { useFormReview } from "../review";
+import { PopupInputs, completeRelated } from "./related-dialog";
 import {
   Card,
   CardContent,
@@ -45,24 +46,25 @@ export function Fieldsets({ groups }: { groups: FieldsetDescriptor[] }) {
   const t = useStrings();
   return groups.map((group, index) => {
     const content = (
-      <CardContent className="grid gap-x-6 gap-y-5 sm:grid-cols-2">
+      <CardContent className="admin-fields-grid">
         {group.description && (
           <NativeHtml
             html={group.description}
-            className="text-sm text-muted-foreground sm:col-span-2"
+            className="col-span-full text-sm text-muted-foreground"
           />
         )}
         {group.lines.map((line, i) => (
           <div
             key={i}
-            className={
-              line.length > 1
-                ? "grid gap-5 sm:col-span-2 sm:grid-cols-2"
-                : line.some((field) =>
-                      ["textarea", "native", "readonly"].includes(field.widget),
-                    )
-                  ? "grid min-w-0 gap-5 sm:col-span-2"
-                  : "grid min-w-0 gap-5"
+            className="admin-field-line"
+            data-multiple={line.length > 1}
+            data-full={
+              line.length > 1 ||
+              line.some(
+                (field) =>
+                  field.layout === "full" ||
+                  ["textarea", "json", "array", "file"].includes(field.widget),
+              )
             }
           >
             {line.map((field) => (
@@ -230,6 +232,7 @@ export function AdminForm({ page }: { page: FormPage }) {
       }}
     >
       <Csrf />
+      <PopupInputs popup={data.popup} toField={data.to_field} />
       {review.dialog}
       {page.relations_url && page.object_key && (
         <RelationshipExplorer
@@ -282,6 +285,12 @@ export function AdminForm({ page }: { page: FormPage }) {
         <a
           className={buttonVariants({ variant: "ghost" })}
           href={page.cancel_url}
+          onClick={(event) => {
+            if (data.popup && window.parent !== window) {
+              event.preventDefault();
+              completeRelated({ action: "cancel" });
+            }
+          }}
         >
           {t.cancel}
         </a>

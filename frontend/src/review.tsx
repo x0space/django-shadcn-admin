@@ -41,7 +41,7 @@ export function formSnapshot(
               name?.startsWith(field.name.split("__prefix__")[0]) &&
               name.endsWith(field.name.split("__prefix__")[1]),
           )
-      : field.widget === "native"
+      : ["native", "datetime", "file"].includes(field.widget)
         ? Array.from(form.elements)
             .map((e) => (e as HTMLInputElement).name)
             .filter(

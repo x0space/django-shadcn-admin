@@ -5,6 +5,8 @@ import { Textarea } from "../components/ui/textarea";
 import { Checkbox } from "../components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import { Button } from "../components/ui/button";
+import { MultiChoice } from "./multi-choice";
+import { RelatedDialog } from "./related-dialog";
 import { useDirection } from "../components/ui/direction";
 import {
   Select,
@@ -157,11 +159,23 @@ function HtmlControl({ bridge }: { bridge: Bridge }) {
         />
       );
     const choices = readChoices(control);
+    if (control.multiple)
+      return (
+        <MultiChoice
+          choices={choices}
+          value={Array.isArray(value) ? value : []}
+          onChange={update}
+          id={id}
+          label={label}
+          disabled={common.disabled}
+          required={required}
+          invalid={common["aria-invalid"]}
+        />
+      );
     const groups = [...new Set(choices.map((choice) => choice.group))];
     return (
       <Select
-        value={value}
-        multiple={control.multiple}
+        value={String(value)}
         items={choices}
         required={required}
         disabled={common.disabled}
@@ -208,6 +222,14 @@ function HtmlControl({ bridge }: { bridge: Bridge }) {
     (control instanceof HTMLInputElement &&
       ["submit", "button", "reset", "image"].includes(control.type))
   ) {
+    if (control instanceof HTMLAnchorElement)
+      return (
+        <RelatedDialog
+          control={control}
+          label={label}
+          disabled={common.disabled}
+        />
+      );
     return (
       <Button
         {...common}

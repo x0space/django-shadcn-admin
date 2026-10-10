@@ -14,6 +14,7 @@ from django.contrib.admin.templatetags.admin_modify import submit_row
 from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
 from django.contrib.admin.utils import quote
 from django.contrib.admin.views.main import PAGE_VAR
+from django.core.exceptions import FieldDoesNotExist
 from django.middleware.csrf import get_token
 from django.template.defaultfilters import unordered_list
 from django.urls import reverse
@@ -23,6 +24,20 @@ from django.utils.translation import get_language, get_language_bidi
 
 from .conf import config, resolve
 from .i18n import messages_for
+from .model_icons import model_icon
+
+
+def structured_display(obj, name, model_admin):
+    # Respect custom/callable renderers rather than exposing an underlying value.
+    if not isinstance(name, str) or hasattr(model_admin, name):
+        return None
+    try:
+        field = obj._meta.get_field(name)
+    except FieldDoesNotExist:
+        return None
+    if field.get_internal_type() in {"JSONField", "ArrayField"}:
+        return {"kind": "json", "value": field.value_from_object(obj)}
+    return None
 
 
 def text(value):
@@ -58,11 +73,11 @@ def field_descriptor(bound, request, site):
         "attrs": {
             key: value
             for key, value in actual.attrs.items()
-            if key in {"placeholder", "maxlength", "min", "max", "step", "autocomplete"}
+            if key in {"placeholder", "maxlength", "min", "max", "step", "autocomplete", "accept", "pattern", "inputmode", "rows"}
         },
     }
     # Unknown custom widgets keep their original renderer, scripts and assets.
-    builtin = type(actual).__module__ in {"django.forms.widgets", "django.contrib.admin.widgets"}
+    builtin = type(actual).__module__ in {"django.forms.widgets", "django.contrib.admin.widgets", "django.contrib.postgres.forms.array"}
     if builtin:
         if bound.is_hidden:
             descriptor["widget"] = "hidden"
@@ -113,6 +128,9 @@ def field_descriptor(bound, request, site):
             descriptor["widget"] = "url"
         elif isinstance(actual, forms.TextInput):
             descriptor["widget"] = "text"
+    from .field_types import enhance_field
+
+    descriptor = enhance_field(bound, actual, descriptor, builtin)
     if descriptor["widget"] == "native":
         # Native widgets may intentionally mask a secret. Only their rendered
         # HTML belongs in the client descriptor, never the unrendered initial value.
@@ -137,6 +155,7 @@ def fieldsets_descriptor(adminform, request, site):
                             "help": html(field.field["help_text"]),
                             "html": html(field.contents()),
                             "errors": [],
+                            "display": structured_display(fieldset.form.instance, field.field["name"], getattr(adminform, "model_admin", None)),
                         }
                     )
                 else:
@@ -293,11 +312,14 @@ def list_descriptor(context, request, site):
                 else None
             )
             cells.append(
-                {"html": re.sub(r"^<(td|th)\b[^>]*>|</(td|th)>$", "", text(cell)), "field": field}
+                {"html": re.sub(r"^<(td|th)\b[^>]*>|</(td|th)>$", "", text(cell)), "field": field,
+                 "display": structured_display(cl.result_list[index], name, cl.model_admin) if field is None else None}
             )
         rows.append(
             {
                 "key": text(cl.result_list[index].pk),
+                "popup_value": text(getattr(cl.result_list[index], cl.to_field or cl.opts.pk.attname)) if cl.is_popup else None,
+                "popup_label": text(cl.result_list[index]) if cl.is_popup else None,
                 "cells": cells,
                 "hidden": [text(f) for f in editable.hidden_fields()] if editable else [],
             }
@@ -415,6 +437,7 @@ def page_descriptor(context, request, site, template_name):
                     "url": model.get("admin_url"),
                     "add_url": model.get("add_url"),
                     "label": model["model"]._meta.label_lower,
+                    "icon": model_icon(model["model"], site),
                 }
                 for model in app["models"]
                 if model.get("admin_url")
@@ -428,6 +451,8 @@ def page_descriptor(context, request, site, template_name):
             if not item.get("permission") or request.user.has_perm(item["permission"]):
                 custom_navigation.append({"name": text(item["name"]), "url": item["url"]})
     base = {
+        "popup": bool(context.get("is_popup") or request.GET.get("_popup")),
+        "to_field": context.get("to_field") or request.GET.get("_to_field") or request.POST.get("_to_field"),
         "version": 1,
         "title": text(context.get("title")),
         "language": language,

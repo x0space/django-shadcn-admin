@@ -26,6 +26,8 @@ class CustomBuildHook(BuildHookInterface):
             "licenses/index.json",
             "licenses/geist-LICENSE",
             "licenses/noto-sans-arabic-LICENSE",
+            "licenses/vazirmatn-LICENSE",
+            "fonts/vazirmatn.woff2",
         ]
         for entry in manifest.values():
             required.append(entry["file"])
@@ -42,6 +44,7 @@ class CustomBuildHook(BuildHookInterface):
             raise RuntimeError(f"Bundled fonts are missing. {hint}")
         for name in [
             "templates/django_shadcn/shell.html",
+            "templates/django_shadcn/popup_response.html",
             "templates/django_shadcn/catalog.html",
             "templates/admin/base_site.html",
             "component-inventory.json",

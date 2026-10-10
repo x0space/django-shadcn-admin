@@ -128,14 +128,14 @@ test("shadcn relationship controls, autocomplete, filters and file clearing reta
   await expect(
     page.getByRole("combobox", { name: "Customer", exact: true }),
   ).toContainText("Emma Laurent");
-  await page.getByRole("checkbox", { name: "Clear", exact: true }).check();
+  await page.getByRole("checkbox", { name: "Remove current file", exact: true }).check();
   await page.getByRole("button", { name: "Save changes", exact: true }).click();
   await page
     .getByRole("button", { name: "Confirm and continue", exact: true })
     .click();
   await page.getByRole("link", { name: subject, exact: true }).click();
   await expect(
-    page.getByRole("checkbox", { name: "Clear", exact: true }),
+    page.getByRole("checkbox", { name: "Remove current file", exact: true }),
   ).toHaveCount(0);
 
   await page.goto("/admin/workspace/order/add/");

@@ -85,6 +85,9 @@ export function useApp() {
   if (!value) throw new Error("This component needs Django Shadcn Providers.");
   return value;
 }
+export function useOptionalApp() {
+  return useContext(Context);
+}
 export function useStrings() {
   return useApp().data.strings;
 }

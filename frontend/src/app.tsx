@@ -5,7 +5,6 @@ import {
   BoxesIcon,
   CommandIcon,
   GlobeIcon,
-  LayersIcon,
   LayoutDashboardIcon,
   LogOutIcon,
   MoonIcon,
@@ -13,6 +12,7 @@ import {
   SunIcon,
 } from "lucide-react";
 import { Providers, useApp, useStrings } from "./context";
+import { ModelIcon } from "./model-icon";
 import type { PageDescriptor, FormPage } from "./types";
 import { AdminForm, Csrf } from "./adapters/forms";
 import { FormField } from "./adapters/fields";
@@ -229,6 +229,19 @@ function Shell() {
     return () => window.removeEventListener("keydown", listener);
   }, []);
   if (data.page.kind === "login") return <Login page={data.page} />;
+  if (data.popup)
+    return (
+      <main
+        id="main-content"
+        className="popup-shell space-y-5"
+        dir={data.direction}
+      >
+        <h1 className="text-xl font-semibold">{data.title}</h1>
+        {data.page.kind === "form" && <AdminForm page={data.page} />}
+        {data.page.kind === "delete" && <DeleteConfirmation page={data.page} />}
+        {data.page.kind === "list" && <ModelList page={data.page} />}
+      </main>
+    );
   const models = data.navigation.flatMap((app) => app.models);
   return (
     <SidebarProvider>
@@ -288,7 +301,7 @@ function Shell() {
                       isActive={data.path.startsWith(model.url)}
                       tooltip={model.name}
                     >
-                      <LayersIcon />
+                      <ModelIcon name={model.icon} />
                       <span>{model.name}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -460,7 +473,7 @@ function Shell() {
                     window.location.href = model.url;
                   }}
                 >
-                  <LayersIcon />
+                  <ModelIcon name={model.icon} />
                   {model.name}
                 </CommandItem>
               ))}

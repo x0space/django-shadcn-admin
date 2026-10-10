@@ -22,6 +22,7 @@ SHADCN = {
     ],
     "DASHBOARD": ["myapp.dashboard.metrics"],
     "EXTENSIONS": ["myapp/admin-extension.js"],  # Django static paths
+    "MODEL_ICONS": {"sales.product": "box", "sales.customer": "users"},
 }
 ```
 
@@ -45,6 +46,19 @@ Kanban/calendar fields, relationship exploration, and deterministic action
 previews. See [admin workspaces](workspaces.md) for setup and behavior.
 
 ## Widget adapters
+
+Standard JSON fields use a structured editor for nested objects, lists, and scalar
+values; PostgreSQL `SimpleArrayField` uses a list editor. Multiple-choice fields
+use searchable chips, file/image fields provide previews and clear controls, and
+split datetimes preserve Django's separate date/time field names. All values still
+pass through Django's original form validation. Custom widgets keep their native
+renderer unless an adapter is explicitly registered.
+
+Model icons are inferred from model names. Override them through `MODEL_ICONS`
+(keyed by lowercase `app_label.model_name`) or `ModelAdmin.shadcn_icon`. Supported
+names are `box`, `users`, `receipt`, `file-text`, `folder`, `tag`, `message`,
+`calendar`, `image`, `shield`, `settings`, `database`, `mail`, `globe`, `chart`,
+and `key`.
 
 Register a Python adapter using `site.register_widget(WidgetClass, adapter)`. The adapter receives `(bound_field, request)` and returns a JSON-compatible field descriptor. Required keys are `widget`, `name`, `id`, `label`, and `errors`; additional keys include `value`, `help`, `required`, `disabled`, `attrs`, and `html`.
 

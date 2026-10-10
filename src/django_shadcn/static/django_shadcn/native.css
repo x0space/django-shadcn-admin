@@ -1,4 +1,8 @@
+@font-face { font-family: Vazirmatn; font-style: normal; font-weight: 100 900; font-display: swap; src: url("fonts/vazirmatn.woff2") format("woff2"); }
 :root { --primary: #27272a; --secondary: #18181b; --accent: #f4f4f5; --link-fg: #3f3f46; --link-hover-color: #18181b; --header-color: #fff; --border-color: #e4e4e7; --selected-bg: #f4f4f5; font-family: system-ui,sans-serif; }
+html:lang(fa), html:lang(fa) body { font-family: Vazirmatn, system-ui, sans-serif; }
+html:lang(fa) input, html:lang(fa) textarea, html:lang(fa) select, html:lang(fa) button { font-family: inherit; }
+html[dir=rtl] .form-row { text-align: start; }
 html[data-theme=dark] { --primary:#d4d4d8; --secondary:#27272a; --accent:#e4e4e7; --link-fg:#d4d4d8; --link-hover-color:#fff; --border-color:#3f3f46; --selected-bg:#27272a; }
 #header { padding: 20px 32px; } .module { border-radius: 10px; overflow:hidden; } .submit-row { border-radius:10px; } input, select, textarea { border-radius:6px; } .button,input[type=submit] { border-radius:6px; }
 html[dir=rtl] { font-family: system-ui,sans-serif; } body { line-height:1.6; }

@@ -24,6 +24,9 @@ import type { DashboardPage, DeletePage, HistoryPage, ListPage } from "./types";
 import { useApp, useStrings } from "./context";
 import { Csrf } from "./adapters/forms";
 import { FormField, NativeHtml } from "./adapters/fields";
+import { PopupInputs, completeRelated } from "./adapters/related-dialog";
+import { ModelIcon } from "./model-icon";
+import { StructuredDisplay } from "./adapters/structured-display";
 import { Button, buttonVariants } from "./components/ui/button";
 import { Badge } from "./components/ui/badge";
 import { Input } from "./components/ui/input";
@@ -181,7 +184,7 @@ export function Dashboard({ page }: { page: DashboardPage }) {
                 className="group flex items-center gap-3 rounded-lg border p-4 transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
               >
                 <span className="rounded-lg bg-muted p-2">
-                  <LayersIcon className="size-4" />
+                  <ModelIcon name={model.icon} className="size-4" />
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-sm font-medium">
@@ -565,8 +568,26 @@ export function ModelList({ page }: { page: ListPage }) {
                             selectRecord(row.key, Boolean(checked))
                           }
                         />
+                      ) : data.popup &&
+                        row.popup_value &&
+                        index === (page.headers[0]?.checkbox ? 1 : 0) ? (
+                        <Button
+                          type="button"
+                          variant="link"
+                          className="h-auto whitespace-normal p-0 text-start"
+                          onClick={() =>
+                            completeRelated({
+                              action: "lookup",
+                              value: row.popup_value,
+                            })
+                          }
+                        >
+                          {row.popup_label}
+                        </Button>
                       ) : cell.field ? (
                         <FormField field={cell.field} />
+                      ) : cell.display ? (
+                        <StructuredDisplay value={cell.display.value} />
                       ) : (
                         <span
                           className="[&_a]:font-medium [&_a]:hover:underline"
@@ -629,6 +650,7 @@ export function ModelList({ page }: { page: ListPage }) {
   );
 }
 export function DeleteConfirmation({ page }: { page: DeletePage }) {
+  const { data } = useApp();
   const t = useStrings();
   return (
     <Card className="max-w-3xl shadow-none">
@@ -647,6 +669,7 @@ export function DeleteConfirmation({ page }: { page: DeletePage }) {
         ) : (
           <form method="post" className="flex gap-2">
             <Csrf />
+            <PopupInputs popup={data.popup} toField={data.to_field} />
             <input type="hidden" name="post" value="yes" />
             {page.action && (
               <>
@@ -673,6 +696,12 @@ export function DeleteConfirmation({ page }: { page: DeletePage }) {
             <a
               className={buttonVariants({ variant: "outline" })}
               href={page.cancel_url}
+              onClick={(event) => {
+                if (data.popup && window.parent !== window) {
+                  event.preventDefault();
+                  completeRelated({ action: "cancel" });
+                }
+              }}
             >
               {t.cancel}
             </a>

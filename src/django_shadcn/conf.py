@@ -10,6 +10,7 @@ DEFAULTS = {
     "NAVIGATION": [],
     "DASHBOARD": [],
     "EXTENSIONS": [],
+    "MODEL_ICONS": {},
 }
 
 

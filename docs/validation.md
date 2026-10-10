@@ -4,6 +4,24 @@ Validation performed locally on Windows on 2026-10-10.
 
 ## Workspace feature validation
 
+- Final field-editor release checks: **66 Django tests** and **30 frontend tests**
+  pass, including nested JSON/scalar values, custom widget masking, split datetime
+  inputs, popup validation and custom popup-template preservation. The production
+  admin/library builds and 64-family coverage check pass with bundled Vazirmatn
+  fonts and license notices.
+- The new structured-field/related-dialog workflow passes in Chromium, Firefox,
+  and WebKit, including Persian text saving, embedded related-record creation,
+  Vazirmatn rendering, and the 390px layout without horizontal overflow. The test
+  waits for login and language navigation before continuing.
+- Both archives contain **172 matching package files** and pass strict Twine
+  validation. Fresh wheel and sdist installations pass Django checks, login,
+  registered model administration, and manifest-based static collection without
+  Node. All ten README links are absolute web links, and their repository
+  documentation targets exist, including workspace documentation.
+- The previous release commit passed GitHub's complete Python/Django matrix,
+  PostgreSQL, and browser jobs. The final field-editor commit requires its own CI
+  run before publication.
+
 - Final release select fix: both Firefox language/responsiveness checks pass
   after moving scrolling and inset padding to `Select.List`. The full release CI
   rerun verifies this fix across all supported browsers.
@@ -46,4 +64,4 @@ Validation performed locally on Windows on 2026-10-10.
 - PostgreSQL and the complete nine-combination Python/Django matrix are configured in CI. A local PostgreSQL server is unavailable, so its job has not been executed here.
 - Installed Chrome covers Chromium locally because the Chromium download provider denies regional access. Firefox and WebKit use their downloaded Playwright distributions.
 - Native relationship/custom-widget compatibility is intentional; see the compatibility matrix. Third-party templates and widgets require their own integration tests.
-- Vite reports a chunk-size warning for the admin bootstrap (about 273 KB gzip). Charts and the component catalog are lazy chunks. Further bundle optimization remains possible without changing the public API.
+- Vite reports a chunk-size warning for the admin bootstrap (about 280 KB gzip). Charts and the component catalog are lazy chunks. Further bundle optimization remains possible without changing the public API.

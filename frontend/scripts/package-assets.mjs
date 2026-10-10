@@ -15,13 +15,18 @@ if (process.argv.includes("--prune"))
 await cp("dist/assets", `${target}/assets`, { recursive: true });
 await cp("dist/.vite/manifest.json", `${target}/manifest.json`);
 await mkdir(`${target}/licenses`, { recursive: true });
-for (const name of ["geist", "noto-sans-arabic"]) {
+for (const name of ["geist", "noto-sans-arabic", "vazirmatn"]) {
   const fontPath = `node_modules/@fontsource-variable/${name}`;
   for (const file of await readdir(fontPath)) {
     if (/license|ofl/i.test(file))
       await cp(`${fontPath}/${file}`, `${target}/licenses/${name}-${file}`);
   }
 }
+await mkdir(`${target}/fonts`, { recursive: true });
+await cp(
+  "node_modules/@fontsource-variable/vazirmatn/files/vazirmatn-arabic-wght-normal.woff2",
+  `${target}/fonts/vazirmatn.woff2`,
+);
 console.log("Packaged Django assets, manifest, and font licenses.");
 await cp("../LICENSE", "LICENSE");
 await cp("../THIRD_PARTY_NOTICES.md", "THIRD_PARTY_NOTICES.md");

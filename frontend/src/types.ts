@@ -12,6 +12,17 @@ export interface FieldDescriptor {
   html?: string;
   attrs?: Record<string, string | number>;
   multiple?: boolean;
+  layout?: "full";
+  direction?: Direction;
+  raw?: string;
+  delimiter?: string;
+  item_type?: string;
+  parts?: FieldDescriptor[];
+  file?: { url: string; name: string };
+  image?: boolean;
+  accept?: string;
+  can_clear?: boolean;
+  display?: { kind: "json"; value: unknown } | null;
   choices?: {
     label: string;
     options: { value: string; label: string; selected: boolean }[];
@@ -84,7 +95,13 @@ export interface ListPage {
   }[];
   rows: {
     key: string;
-    cells: { html: string; field: FieldDescriptor | null }[];
+    popup_value?: string;
+    popup_label?: string;
+    cells: {
+      html: string;
+      field: FieldDescriptor | null;
+      display?: { kind: "json"; value: unknown } | null;
+    }[];
     hidden: string[];
   }[];
   count: number;
@@ -142,6 +159,8 @@ export interface CatalogPage {
   inventory: ComponentInventory[];
 }
 export interface PageDescriptor {
+  popup?: boolean;
+  to_field?: string | null;
   jsi18n_url: string;
   version: 1;
   title: string;
@@ -160,6 +179,7 @@ export interface PageDescriptor {
       url: string;
       add_url: string | null;
       label: string;
+      icon?: string;
     }[];
   }[];
   custom_navigation: { name: string; url: string }[];

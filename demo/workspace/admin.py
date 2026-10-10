@@ -3,7 +3,17 @@ from django.utils.translation import gettext_lazy as _
 
 from django_shadcn.admin import ShadcnModelAdmin
 
-from .models import Article, Customer, Order, OrderLine, Product, Reply, Ticket
+from .models import (
+    Article,
+    Category,
+    Customer,
+    FieldSample,
+    Order,
+    OrderLine,
+    Product,
+    Reply,
+    Ticket,
+)
 
 
 @admin.register(Customer)
@@ -90,3 +100,22 @@ class ReplyAdmin(ShadcnModelAdmin):
     list_display = ["ticket", "author", "created"]
     readonly_fields = ["created"]
     shadcn_relations = ["ticket"]
+
+
+@admin.register(Category)
+class CategoryAdmin(ShadcnModelAdmin):
+    list_display = ["name", "parent", "position", "active"]
+    search_fields = ["name"]
+
+
+@admin.register(FieldSample)
+class FieldSampleAdmin(ShadcnModelAdmin):
+    shadcn_icon = "settings"
+    list_display = ["name", "tags", "metadata", "status", "featured"]
+    autocomplete_fields = ["customer"]
+    raw_id_fields = ["product"]
+    fieldsets = [
+        (None, {"fields": ["name", "images", "tags", "metadata", "categories", "customer", "product", ("status", "featured")]}),
+        ("Dates and numbers", {"fields": ["published_at", "alarm", "duration", "identifier", "ip_address", "amount", "ratio"]}),
+        ("Files", {"fields": ["attachment", "image"]}),
+    ]

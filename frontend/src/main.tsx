@@ -12,6 +12,7 @@ import { registerFieldAdapter } from "./adapters/fields";
 import { useApp, useStrings } from "./context";
 import type { PageDescriptor } from "./types";
 import "./styles.css";
+import { completeRelated, type RelatedResult } from "./adapters/related-dialog";
 
 registerComponent("Button", Button);
 registerComponent("Card", Card);
@@ -20,6 +21,9 @@ registerComponent("Badge", Badge);
 registerComponent("Input", Input);
 const data = document.getElementById("django-shadcn-data");
 const root = document.getElementById("django-shadcn-root");
+const popupResult = document.getElementById("django-shadcn-popup-result");
+if (popupResult)
+  completeRelated(JSON.parse(popupResult.textContent || "{}") as RelatedResult);
 if (root && data) {
   const descriptor = JSON.parse(data.textContent || "{}") as PageDescriptor;
   if (descriptor.version !== 1)

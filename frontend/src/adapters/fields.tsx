@@ -39,6 +39,10 @@ import {
 import { Calendar } from "../components/ui/calendar";
 import { PersianCalendar } from "../components/persian-calendar";
 import { ShadcnHtml } from "./html-controls";
+import { StructuredField } from "./structured-field";
+import { FileField } from "./file-field";
+import { MultiChoice } from "./multi-choice";
+import { StructuredDisplay } from "./structured-display";
 
 type Adapter = (props: { field: FieldDescriptor }) => ReactNode;
 const adapters = new Map<string, Adapter>();
@@ -165,20 +169,31 @@ export function DateControl({
 function SelectControl({ field }: { field: FieldDescriptor }) {
   const direction = useDirection();
   const options = field.choices?.flatMap((group) => group.options) || [];
-  const initial = field.multiple
-    ? Array.isArray(field.value)
-      ? field.value.map(String)
-      : []
-    : field.value == null
-      ? (options[0]?.value ?? "")
-      : String(field.value);
+  const [selected, setSelected] = useState<string[]>(
+    Array.isArray(field.value) ? field.value.map(String) : [],
+  );
+  if (field.multiple)
+    return (
+      <MultiChoice
+        choices={options}
+        value={selected}
+        onChange={setSelected}
+        name={field.name}
+        id={field.id}
+        label={field.label}
+        required={field.required}
+        disabled={field.disabled}
+        invalid={field.errors.length > 0}
+      />
+    );
+  const initial =
+    field.value == null ? (options[0]?.value ?? "") : String(field.value);
   return (
     <Select
       id={field.id}
       name={field.name}
       disabled={field.disabled}
       required={field.required}
-      multiple={field.multiple}
       defaultValue={initial}
       items={options}
     >
@@ -224,6 +239,8 @@ export function FormField({ field }: { field: FieldDescriptor }) {
   if (field.widget === "hidden") return <NativeHtml html={field.html} />;
   let control: ReactNode;
   if (Custom) control = <Custom field={field} />;
+  else if (field.widget === "readonly" && field.display)
+    control = <StructuredDisplay value={field.display.value} />;
   else if (field.widget === "readonly")
     control = (
       <NativeHtml
@@ -238,6 +255,32 @@ export function FormField({ field }: { field: FieldDescriptor }) {
         label={field.label}
         className="native-widget min-w-0"
       />
+    );
+  else if (["json", "array"].includes(field.widget))
+    control = <StructuredField field={field} />;
+  else if (field.widget === "file") control = <FileField field={field} />;
+  else if (field.widget === "datetime")
+    control = (
+      <div className="grid min-w-0 gap-3 sm:grid-cols-2">
+        {field.parts?.map((part) =>
+          part.widget === "date" ? (
+            <DateControl key={part.name} field={part} />
+          ) : (
+            <Input
+              key={part.name}
+              id={part.id}
+              name={part.name}
+              aria-label={`${field.label} — ${part.label}`}
+              disabled={part.disabled}
+              required={part.required}
+              type="time"
+              step="any"
+              dir="ltr"
+              defaultValue={String(part.value || "")}
+            />
+          ),
+        )}
+      </div>
     );
   else if (field.widget === "date") control = <DateControl field={field} />;
   else if (field.widget === "checkbox")
@@ -274,10 +317,16 @@ export function FormField({ field }: { field: FieldDescriptor }) {
       <Input
         {...common}
         {...field.attrs}
-        type={field.widget === "time" ? "text" : field.widget}
+        type={field.widget}
+        step={field.widget === "time" ? "any" : undefined}
         defaultValue={field.widget === "file" ? undefined : initial}
         dir={
-          ["email", "url", "number"].includes(field.widget) ? "ltr" : undefined
+          field.direction ||
+          (["email", "url", "number", "time", "datetime-local", "tel"].includes(
+            field.widget,
+          )
+            ? "ltr"
+            : undefined)
         }
       />
     );

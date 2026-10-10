@@ -10,16 +10,22 @@ The supported Django series are 5.2 LTS, 6.0, and 6.1. The library does not requ
 | Forms and validation | original bound ModelForm, fieldsets, readonly values, errors and save buttons |
 | Inline forms | Django prefixes, IDs and management forms, client-added empty forms, DELETE fields |
 | Dates | shadcn calendar / optional Jalali, canonical Gregorian POST |
-| Relationships / autocomplete / raw IDs | Django native relationship widgets and media inside the shadcn form |
+| Relationships / autocomplete / raw IDs | shadcn controls backed by Django's restricted querysets, endpoints, and native widget media |
 | New file upload | shadcn input, Django multipart parsing |
-| Existing file / clear checkbox | original native widget, preserving current-file and clear semantics |
-| Datetime / MultiWidget / custom widget | original native renderer and media |
+| Existing file / clear checkbox | previews and named clear controls, preserving Django's current-file semantics |
+| JSON / PostgreSQL simple arrays | structured nested editor / list editor, original Django validation |
+| Datetime / split datetime | typed controls preserving Django field names and validation |
+| Other MultiWidget / custom widget | original native renderer and media |
 | Standard authentication | Django auth forms rendered with shadcn controls |
 | Custom template / custom view | original native response, themed when it extends admin base |
-| Popup add/change | original Django popup protocol and opener callbacks |
+| Related add/change/delete/lookup | embedded same-origin dialogs, Django permissions and callback protocol; custom templates retain native responses |
 | Permissions / hooks / transactions / logs | original Django views and registered ModelAdmin |
 
-The initial release deliberately uses native Django relationship widgets. These retain related-object controls and the existing restricted autocomplete endpoint. They are styled to fit the form but retain their native interaction API. Register adapters when a project requires a different interaction. Never replace a scoped relation queryset with an unrestricted frontend query.
+Relationship controls retain Django's native widget state and media while providing
+searchable selection and embedded dialogs. Related forms use the same admin views,
+permissions, and restricted autocomplete endpoint. Dialog messages must come from
+the current same-origin frame; successful saves update Django's original control.
+Never replace a scoped relation queryset with an unrestricted frontend query.
 
 The middleware checks the actual selected template's origin. An app/model/project override wins and remains native, even when the filename matches a built-in admin template. Unknown responses, redirects, downloads and intermediate action templates remain unchanged. Native pages retain widget `Media`, JavaScript, and the original URL namespace. Both built-in and custom widget HTML must follow Django's normal escaping rules.
 

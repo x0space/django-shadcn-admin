@@ -9,6 +9,10 @@ Gregorian/Jalali calendars, compare records, explore relationships, and review
 form changes and bulk actions before saving. Dashboard cards link straight to
 the records that need attention. See [workspace configuration](https://github.com/x0space/django-shadcn-admin/blob/main/docs/workspaces.md).
 
+Built-in field editors support nested JSON, PostgreSQL arrays, searchable multiple
+choices, file/image previews, and split date/time controls. Related records open
+in embedded dialogs, and Persian screens use the bundled Vazirmatn font.
+
 ## Install
 
 Requires Python 3.12+ and Django 5.2–6.1. Once the first release is published to PyPI:

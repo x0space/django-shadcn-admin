@@ -1,3 +1,4 @@
+import uuid
 from decimal import Decimal
 
 from django.core.validators import MinValueValidator
@@ -119,3 +120,41 @@ class Reply(models.Model):
 
     def __str__(self):
         return self.author
+
+
+class Category(models.Model):
+    name = models.CharField(_("Name"), max_length=120)
+    parent = models.ForeignKey("self", blank=True, null=True, on_delete=models.SET_NULL)
+    image = models.URLField(blank=True)
+    position = models.PositiveIntegerField(default=0)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
+
+
+class FieldSample(models.Model):
+    name = models.CharField(_("Name"), max_length=120)
+    images = models.JSONField(default=list, blank=True)
+    tags = models.JSONField(default=list, blank=True)
+    metadata = models.JSONField(default=dict, blank=True)
+    categories = models.ManyToManyField(Category, blank=True)
+    customer = models.ForeignKey(Customer, blank=True, null=True, on_delete=models.SET_NULL)
+    product = models.ForeignKey(Product, blank=True, null=True, on_delete=models.SET_NULL)
+    status = models.CharField(max_length=20, choices=Order.STATUS, default="new")
+    featured = models.BooleanField(default=False)
+    published_at = models.DateTimeField(blank=True, null=True)
+    alarm = models.TimeField(blank=True, null=True)
+    duration = models.DurationField(blank=True, null=True)
+    identifier = models.UUIDField(default=uuid.uuid4)
+    ip_address = models.GenericIPAddressField(blank=True, null=True)
+    amount = models.DecimalField(max_digits=12, decimal_places=3, default=0)
+    ratio = models.FloatField(default=0)
+    attachment = models.FileField(upload_to="samples/", blank=True)
+    image = models.ImageField(upload_to="samples/", blank=True)
+
+    def __str__(self):
+        return self.name

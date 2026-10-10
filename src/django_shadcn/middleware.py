@@ -40,22 +40,38 @@ class ShadcnResponseMiddleware(MiddlewareMixin):
     def process_template_response(self, request, response):
         context = response.context_data or {}
         site = context.get("_shadcn_site")
+        if site is None and context.get("popup_response_data"):
+            site = getattr(getattr(request, "resolver_match", None), "func", None)
+            site = getattr(site, "model_admin", None)
+            site = getattr(site, "admin_site", None)
         if not isinstance(site, ShadcnAdminSite):
             return response
         templates = response.template_name
         templates = [templates] if isinstance(templates, str) else templates
         selected = select_template(templates)
         template_name = selected.origin.template_name
-        is_catalog = context.get("_shadcn_catalog")
         admin_templates = Path(django.contrib.admin.__file__).parent / "templates"
+        if (
+            template_name == "admin/popup_response.html"
+            and context.get("popup_response_data")
+            and Path(selected.origin.name).is_relative_to(admin_templates)
+        ):
+            result = TemplateResponse(request, "django_shadcn/popup_response.html",
+                {**context, "result": json.loads(context["popup_response_data"])}, status=response.status_code)
+            for header, value in response.items():
+                if header.lower() != "content-type":
+                    result[header] = value
+            result.cookies.update(response.cookies)
+            result["X-Frame-Options"] = "SAMEORIGIN"
+            result.xframe_options_exempt = True
+            return result
+        is_catalog = context.get("_shadcn_catalog")
         if not is_catalog and (
             template_name not in STANDARD
             or not Path(selected.origin.name).is_relative_to(admin_templates)
         ):
             # Model/app/project template overrides retain all native behavior.
             return response
-        if context.get("is_popup") or request.GET.get("_popup"):
-            return response  # Django's popup opener protocol stays native.
         descriptor = page_descriptor(context, request, site, template_name)
         descriptor["messages"] = [
             {"level": message.tags, "text": str(message)}
@@ -74,4 +90,7 @@ class ShadcnResponseMiddleware(MiddlewareMixin):
             if header.lower() != "content-type":
                 result[header] = value
         result.cookies.update(response.cookies)
+        if descriptor.get("popup"):
+            result["X-Frame-Options"] = "SAMEORIGIN"
+            result.xframe_options_exempt = True
         return result
